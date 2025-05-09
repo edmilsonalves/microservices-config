@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 172.20.3.51)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME =pdb_emedhml.subnethmlprivat.vcnemed.oraclevcn.com)))
-    password: '3m3dRep44ll01$#Med8'
+    url: jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=172.20.1.209)(port=1521))(connect_data=(SERVER =DEDICATED)(service_name=emedprd_prd.subnetprdprivat.vcnemed.oraclevcn.com)))
+    password: '3m3dRep44ll01$#Med' 
     hikari:
       maximum-pool-size: ${datasource.maximum-pool-size}
       minimum-idle: ${datasource.minimum-idle}

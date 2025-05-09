@@ -1,7 +1,7 @@
 spring:
   datasource:
     url: jdbc:oracle:thin:@(description=(address=(protocol=tcp)(host=172.20.1.209)(port=1521))(connect_data=(SERVER =DEDICATED)(service_name=emedprd_prd.subnetprdprivat.vcnemed.oraclevcn.com)))
-    password: 'EMdpep@!'
+    password: 'EMdadm@!'
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
       maximum-pool-size: ${datasource.maximum-pool-size}
