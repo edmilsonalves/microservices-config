@@ -1,0 +1,39 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: emed-agenda-server
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+
+  datasource:
+    url: jdbc:oracle:thin:@34.55.162.220/XE
+    username: EMEDAGD
+    password: 3m3dAgd44ll01
+    driver-class-name: oracle.jdbc.OracleDriver
+  redis:
+    uri: redis://localhost:6379
+    repositories:
+      enable: true
+  jackson:
+    jserialization.write-dates-as-timestamps: false
+    date-format: yyyy-MM-dd'T'HH:mm:ssZ
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:9092
+    consumer:
+      group-id: agenda-server
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 2
+
+#Parâmetros específicos do serviço
+app:
+  site.url: 'http://localhost:3000'
+  idUsuarioApi: 40520

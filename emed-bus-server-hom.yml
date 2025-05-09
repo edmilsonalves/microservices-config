@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: ${datasource.url}
+    password: '3m3dAdm44ll01$#Med8'
+  data:
+    mongodb:
+      uri: mongodb://${mongodb.username}:${mongodb.password}@${mongodb.host}/hom?authSource=admin&authMechanism=SCRAM-SHA-1
+  #Kafka properties
+  kafka:
+    bootstrap-servers: ${kafka.hosts}

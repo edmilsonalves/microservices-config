@@ -1,0 +1,32 @@
+eureka:
+  host: app-eureka-server
+  port: 80
+  name: eureka
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: app-eureka-server/eureka
+    instance:
+      preferIpAddress: true
+
+kafka:
+  host: kafka.kafka
+  port: 9092
+
+mongodb:
+  host: mongodb.mongodb
+  username: root
+  password: Ere9Rp24Hb
+
+spring:
+  datasource.hikari:
+    maximum-pool-size: 5
+    minimum-idle: 1
+  mongodb:
+    maximum-pool-size: 10
+    uri: mongodb://${mongodb.username}:${mongodb.password}@${mongodb.host}/hom?authSource=admin&authMechanism=SCRAM-SHA-1
+  kafka:
+    bootstrap-servers: PLAINTEXT://${kafka.host}:${kafka.port}
+  # config:
+  #   import: optional:configserver:http://app-config-server.staging

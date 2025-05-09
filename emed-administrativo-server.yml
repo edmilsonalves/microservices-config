@@ -1,0 +1,57 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: emed-administrativo-server
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+
+  datasource:
+    url: jdbc:oracle:thin:@34.55.162.220/XE
+    username: EMEDADM
+    password: 3m3dAdm44ll01
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:9092
+
+    consumer:
+      group-id: administrativo-server
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 2
+
+swagger:
+  title: Administrativo
+  description: Microserviço das APIs administrativas
+
+app:
+  cadastro-usuario:
+    log-senha-gerada: false
+  site:
+    portal: https://emed-hml.univision.net.br/portal
+    url: 'https://emed-hml.univision.net.br'
+  recuperarSenha:
+    tempoExpiracaoToken: 60 ## em minutos
+  path:
+    recuperarSenha: '/recover-password'
+  cliente:
+    validadeAcessToken: 900 # em segundos
+
+    site:
+        url: "http://localhost:3000"
+        portal: http://localhost:3000/portal
+    recuperarSenha:
+        tempoExpiracaoToken: 60 ## em minutos
+    path:
+        recuperarSenha: "/recover-password"
+    cliente:
+        validadeAcessToken: 900 # em segundos
+  idUsuarioApi: 40520
+        

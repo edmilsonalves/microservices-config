@@ -1,0 +1,7 @@
+server:
+  port: 9102
+spring:
+  application:
+    name: emed-tiss-v40100-server
+  kafka:
+    bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092

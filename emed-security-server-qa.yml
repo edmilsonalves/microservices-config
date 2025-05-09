@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${datasource.url}
+    username: EMEDADM_QA
+    password: '3m3dAdm44ll01$#Med'
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
+    password: ${redis.password}
+    repositories:
+      enable: true

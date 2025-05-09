@@ -1,0 +1,22 @@
+server:
+  port: 9011
+spring:
+  application:
+    name: emed-ws-coordenador-service
+  redis:
+    uri: redis://localhost:6379
+    repositories:
+      enable: true
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:9092
+    consumer:
+      group-id: ws-coordenador-server
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 3

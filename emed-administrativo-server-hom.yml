@@ -1,0 +1,22 @@
+spring:
+  datasource.hikari:
+    maximum-pool-size: 20
+    minimum-idle: 10
+  mongodb:
+    maximum-pool-size: 10
+    uri: mongodb://${mongodb.username}:${mongodb.password}@${mongodb.host}:${mongodb.port}/hom?authSource=admin&authMechanism=SCRAM-SHA-1
+  application:
+    name: emed-administrativo-server
+  datasource:
+    url: ${datasource.url}
+    password: '3m3dAdm44ll01$#Med8'
+  kafka:
+    bootstrap-servers: ${kafka.hosts}
+
+app:
+  site:
+    portal: https://emed-hml.univision.net.br/portal
+    url: 'https://emed-hml.univision.net.br'
+  cadastro-usuario:
+    log-senha-gerada: true
+  id-usuario-master: 40520

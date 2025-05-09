@@ -1,0 +1,10 @@
+spring:
+  #Kafka properties
+  kafka:
+    bootstrap-servers: ${kafka.hosts}
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
+    #password: ${redis.password}
+    repositories:
+      enable: true

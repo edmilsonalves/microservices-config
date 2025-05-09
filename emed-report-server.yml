@@ -1,0 +1,35 @@
+server:
+  max-http-header-size: 32768
+  port: 9006
+spring:
+  application:
+    name: emed-report-server
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+
+  datasource:
+    url: jdbc:oracle:thin:@34.55.162.220/XE
+    username: EMEDREP
+    password: 3m3dRep44ll01
+    driver-class-name: oracle.jdbc.OracleDriver
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 2
+
+swagger:
+  title: Relatórios
+  description: Microserviço para os relatórios
+
+feign:
+  client.config.default:
+    connectTimeout: 600000
+    readTimeout: 600000
+
+#Parâmetros específicos do serviço
+app:
+  site.url: 'https://emed.univision.net.br/imgs/emed_logo_text.svg'

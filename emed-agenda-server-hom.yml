@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: ${datasource.url}
+    password: '3m3dAgd44ll01$#Med8'
+  mongodb:
+    maximum-pool-size: 10
+    uri: mongodb://${mongodb.username}:${mongodb.password}@${mongodb.host}/hom?authSource=admin&authMechanism=SCRAM-SHA-1
+  kafka:
+    bootstrap-servers: ${kafka.hosts}
+
+app:
+    site.url: "https://emed-hml.univision.net.br"

@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.10.15.58/XE
+
+  #E-mail properties DEV
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 2525
+    username: 7bcb9b1ba1b612
+    password: 4d1754313b2d3d
+    properties:
+      mail:
+        smtp:
+          from: emed-dev@emed.univision.net.br
+      personal: Emed Dev
+
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092

@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    maximum-pool-size: ${datasource.maximum-pool-size}
+    minimum-idle: ${datasource.minimum-idle}
+    url: ${datasource.url}
+    password: '3m3dAdm44ll01$#Med'  
+  mail:
+    host: email-smtp.us-east-1.amazonaws.com
+    port: 2587
+    username: AKIAVQV3IQRIVJLCYRNK
+    password: BDCAWS3vMLmRjMoHAba1szirfjlJdG7X/huaX6bwkV+t
+    properties:
+      mail:
+        smtp:
+          from: mobile-dev@appunimed.com
+      personal: Emed Temporário 
+    personal: Emed4All
+
+  kafka:
+    bootstrap-servers: ${kafka.hosts}

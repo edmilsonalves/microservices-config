@@ -1,0 +1,39 @@
+server:
+  port: 9007
+spring:
+  application:
+    name: emed-bus-server
+  data:
+    mongodb:
+      uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/emed-bus?authSource=admin&authMechanism=SCRAM-SHA-1
+
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+
+  datasource:
+    url: jdbc:oracle:thin:@34.55.162.220/XE
+    username: EMEDADM
+    password: 3m3dAdm44ll01
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:9092
+
+    consumer:
+      group-id: bus-server
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 2
+swagger:
+  title: Bus
+  description: Microserviço do barramento, responsável pelas comunicações externas
+
+retry:
+  limit: 2
+  delay: 1000

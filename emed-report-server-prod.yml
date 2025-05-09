@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: ${datasource.url}
+    password: '3m3dRep44ll01$#Med'    
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://${kafka.host}:${kafka.port}

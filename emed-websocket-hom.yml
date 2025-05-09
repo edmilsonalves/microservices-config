@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: emed-websocket
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
+    #password: ${redis.password}
+    repositories:
+      enable: true

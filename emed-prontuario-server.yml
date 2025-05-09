@@ -1,0 +1,58 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: emed-prontuario-server
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+  data:
+    mongodb:
+      uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/emed-bus?authSource=admin&authMechanism=SCRAM-SHA-1
+
+  datasource:
+    url: jdbc:oracle:thin:@34.55.162.220/XE
+    username: EMEDPEP
+    password: 3m3dPep44ll01
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://localhost:9092
+
+    consumer:
+      group-id: prontuario-server
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries: 2
+
+swagger:
+  title: Prontuário
+  description: Microserviço das APIs do Prontuário
+
+#Default pool size
+spring.datasource.hikari:
+  maximum-pool-size: 10
+  minimum-idle: 1
+
+criptocubo:
+  url: https://api.cryptocubo.com.br/api/eletronic-signatures/v0/
+  params:
+    operation: sign
+    type: qualified
+    format: cms
+    profile: adrb
+    icpbr: false
+
+  header:
+    key: 93e7e4ffc3ea4b16bf23ff824a886826
+
+  body:
+    format: attached  
+app:
+  idUsuarioApi: 40520
+    

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.10.15.58/XE
+
+  #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092
+
+# App specific properties
+app:
+  site:
+    url: https://emed.univision.net.br
+    portal: https://emed.univision.net.br/portal
+  cadastro-usuario:
+    log-senha-gerada: true
+  id-usuario-master: 11

@@ -1,0 +1,6 @@
+
+spring:
+  application:
+    name: emed-tiss-v40100-server
+  kafka:
+    bootstrap-servers: ${kafka.hosts}

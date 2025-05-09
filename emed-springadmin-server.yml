@@ -1,0 +1,11 @@
+server:
+  port: ${PORT:${SERVER_PORT:9100}}
+  forward-headers-strategy: native
+
+spring:
+  application:
+    name: emed-springadmin-server
+  config:
+    import: optional:configserver:http://localhost:8888
+  boot.admin:
+    routes.endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump

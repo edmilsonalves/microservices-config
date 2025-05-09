@@ -1,0 +1,24 @@
+spring:
+  mongodb:
+    maximum-pool-size: 10
+    uri: mongodb://${mongodb.host}/prod?authSource=admin&authMechanism=SCRAM-SHA-1
+  application:
+    name: emed-administrativo-server
+  datasource:
+    maximum-pool-size: ${datasource.maximum-pool-size}
+    minimum-idle: ${datasource.minimum-idle}
+    url: ${datasource.url}
+    password: 'EMdadm@!'
+  kafka:
+    bootstrap-servers: ${kafka.hosts}
+
+
+app:
+  site:
+    portal: https://app.emedbr.com/portal
+    url: 'https://app.emedbr.com'
+  cadastro-usuario:
+    log-senha-gerada: true
+  site.url: 'https://app.emedbr.com'
+  id-usuario-master: 40520
+

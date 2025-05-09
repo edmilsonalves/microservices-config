@@ -1,0 +1,8 @@
+server:
+  port: 9101
+
+spring:
+  application:
+    name: emed-tiss-v30500-server
+  kafka:
+    bootstrap-servers: PLAINTEXT://${kafka.host}:${kafka.port}

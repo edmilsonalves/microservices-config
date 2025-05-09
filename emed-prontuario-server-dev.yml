@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@10.10.15.58/XE
+
+    #Kafka properties
+  kafka:
+    bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092
+
+    #CriptoCubo properties
+
+criptocubo:
+    url: https://api.cryptocubo.com.br/api/eletronic-signatures/v0/
+    params:
+        operation: sign
+        type: qualified
+        format: cms
+        profile: adrb
+        icpbr: false
+        trace: true
+
+    header:
+        key: 93e7e4ffc3ea4b16bf23ff824a886826
+
+    body:
+        format: attached
+app:
+  id-usuario-master: 11
+        
