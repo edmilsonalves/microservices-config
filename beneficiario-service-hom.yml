@@ -1,0 +1,47 @@
+spring:
+    cloud:           
+        gcp:
+            credentials:
+                location: classpath:service-account-hom.json
+            project-id: ucwbmobile-dev
+
+server:
+    port: ${PORT:${SERVER_PORT:9002}}
+    
+swagger:
+    title: Beneficiário
+    description: Microserviço das APIs de Beneficiário
+
+notificacao:
+    utilizacao:
+        titulo: Notificação Uso do plano
+        texto   : Caro beneficiário, informo que identificamos a utilização do plano de saúde
+
+cartao:
+    token:
+        # considera se geracao via totp nao estiver ativo
+        minutos_expiracao: 15
+        totp:
+            ativo: true
+            chave: secret
+            expiracaoSegundos: 1800
+            posicoes: 10
+            excecoes: '0000'
+    # TODO retirar apos implantacao Cartao Virtual
+    cache:
+        expiracao: 0
+
+storage:
+    bucket: 
+        name: unimedmobile
+        path: upload/protocolo-ouvidoria/
+    path:
+        service-account: service-account-hom.json
+    project-id: ucwbmobile-dev
+
+unimedBrasil:
+    geracaoToken:
+        urlAccesToken: https://gateway-hml.unimed.coop.br/oauth/v1/access-token
+        urlSolicitarToken: https://gateway-hml.unimed.coop.br/cartao-virtual/v1/tokens
+        clientId: d4f83eef-9634-443a-af9e-8a7edd9d37e9
+        clientSecret: 54000380-0d27-49df-afe8-62beb3e46d9d

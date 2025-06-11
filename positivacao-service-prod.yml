@@ -1,0 +1,20 @@
+server:
+   port: ${PORT:${SERVER_PORT:9045}}
+
+swagger:
+  title: Singular
+  description: Microserviço das APIs de Positivação
+
+positivacao:
+  limiteTentativas: 4
+  apiKey: AIzaSyBUsA-XzNcpBwa49t-Lx44r66w_jQXigFE
+  apiHost: https://verificacaofacial.appunimed.com
+
+positivacaoBeneficiario:
+    limiteTentativas: 4
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://positivacaocliente.appunimed.com
+  
+reconhecimentoFacial:
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://verificacaofacial.appunimed.com

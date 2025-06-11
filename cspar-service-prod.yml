@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:Un1m3dM0b!l3@10.142.0.16/?authSource=admin&authMechanism=SCRAM-SHA-1
+      database: cspar-prod

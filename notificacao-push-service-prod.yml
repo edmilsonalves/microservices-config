@@ -1,0 +1,17 @@
+firebase:
+    projeto: ucwbmobile-hom
+    
+# OneSignal
+onesignal:
+    beneficiario:
+        appId: 9f41b166-86d7-46f9-8ddc-1be9fdc7d566
+        authorization: YWZiNTk3ZmUtZWVmMy00MDNiLWEzYWMtNmU1YWU3OWY3MjI0
+    cooperado:
+        appId: b57c2a00-7fe4-4e15-8543-df3cbfe7ae7c
+        authorization: ZTE0YjQ3MWUtMzBkYi00NzhiLWI3ODktMWYzMGFmNzBiYmI4
+    saude:
+        appId: 33f70b12-f65f-4566-bd43-a948ac1b1a19
+        authorization: MWNhOGU1ZjktZDg4MS00ZTY3LWEwZDUtMGVhMDkyYmRmMGM4
+    quer:
+        appId: 3cae164d-dadc-4114-b0f7-0fa1e6af396d
+        authorization: MWMxNmY5N2QtMWEzZC00N2IzLWExMzAtZjcxOWZiYjc4MmI5

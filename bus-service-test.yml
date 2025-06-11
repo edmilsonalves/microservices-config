@@ -1,0 +1,4 @@
+﻿server.port: 9033
+
+timeout:
+    read: 60000

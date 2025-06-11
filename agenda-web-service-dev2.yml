@@ -1,0 +1,10 @@
+spring:
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: guiamedico_db_test
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3309/umb_agenda
+        driver-class-name: com.mysql.jdbc.Driver
+    jpa:
+        show-sql: true

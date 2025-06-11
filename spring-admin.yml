@@ -1,0 +1,13 @@
+server:
+    port: ${PORT:${SERVER_PORT:9022}}
+    use-forward-headers: true
+    forward-headers-strategy: native
+
+spring.boot.admin:
+    routes.endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump
+    turbine:
+        clusters: default
+        url: http://localhost:9021/turbine.stream
+    notify.slack:
+        webhook-url: https://hooks.slack.com/services/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
+        channel: cloud

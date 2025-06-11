@@ -1,48 +1,170 @@
-datasource:
-  maximum-pool-size: 20
-  minimum-idle: 10
-  url: jdbc:oracle:thin:@(DESCRIPTION=(CONNECT_TIMEOUT=5)(TRANSPORT_CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=172.20.1.209)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=emedprd_prd.subnetprdprivat.vcnemed.oraclevcn.com)))
-  
 spring:
-  datasource.hikari:
-    maximum-pool-size: ${datasource.maximum-pool-size}
-    minimum-idle: ${datasource.minimum-idle}
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@10.128.0.3/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: test
+    datasource:
+        url: jdbc:mysql://localhost:3306,localhost:3307/umb_administrativo
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+        hikari:
+            minimum-idle: 5
+            maximum-pool-size: 100
+        tomcat:
+            initial-size: 5
+    jpa:
+        show_sql: false
+    zipkin:
+        baseUrl: http://vm-elk.c.ucwbmobile-hom.internal:9411/
+    sleuth:
+        sampler:
+            percentage: 0.1
+    kafka:
+        bootstrap-servers: PLAINTEXT://kafka-3-vm.c.ucwbmobile-hom.internal:9092
+app.oauth:
+    clientId: umb
+    clientSecret: umb-secret-key
+    loadBalance: true
+    tokenEndpoint: http://oauth-service/oauth/check_token
+  
+ambiente: 
+    descricao: PROD
+    
+#autenticação /api    
+authentication: 
+    basic: true
 
 eureka:
-  host: eureka-server
-  port: 8761
-  name: eureka
-  client:
-    registry-fetch-interval-seconds: 10
-    renewal-interval-in-seconds: 30
-    instance-info-replication-interval-seconds: 10
-    serviceUrl:
-      defaultZone: http://${eureka.host}:${eureka.port}/${eureka.name}
-    healthcheck:
-      enabled: true
-  instance:
-    ipAddress: ${HOST_IP}
-
-app:
-  storage:
-    baseUrl: '${GATEWAY_BASE_URL:https://gateway4all.emedbr.com}/storage'
-    baseDir: /app/storage
-    type: filesystem
-    uploadDir: upload
-    useSignedUrl: true
-    maxFileSizeBytes: 41943040
-    maxImageSizeBytes: 4097152
+    environment: prod
+    client:
+        serviceUrl:
+            defaultZone: http://10.142.0.110:8080/eureka/
+        healthcheck:
+            enabled: true
+    instance:
+        lease-renewal-interval-in-seconds: 15
+        preferIpAddress: true
+    server:
+        renewalPercentThreshold: 0.1
+        enableSelfPreservation: false
 
 kafka:
-  hosts: 172.20.1.149:9094
+    bootstrap:
+        servers: PLAINTEXT://kafka-1-vm.c.ucwbmobile-hom.internal:9092
+        servers2: PLAINTEXT://kafka-3-vm.c.ucwbmobile-hom.internal:9092
 
-mongodb:
-  host: 172.20.1.212
-  port: 27017
-  username: admin
-  password: MongodbEmedbr4All
+url: 
+    api: 
+        gateway: https://gateway.appunimed.com
+        esb: 
+            v1: http://wso2-vm.c.ucwbmobile-hom.internal:8280/api/v1
+            v2: http://gateway.appunimed.com:8080/barramento/app/v1
+        noticia: http://gateway.appunimed.com:8080/noticia
+    umb:
+        web:
+            rest: http://web-administrativo-vm.c.ucwbmobile-hom.internal:8080/umb-web/rest
+            home: https://www.appunimed.com/adm
+umb:
+    path:
+        solicitacaoFoto: /opt/apps/storage/upload/solicitacao-foto
+        fotoNoticia: /opt/apps/storage/upload/noticia
+        fotoBanner: /opt/apps/storage/upload/banner
+        fotoFaq: /opt/apps/storage/upload/faq        
+        fotoBeneficio: /opt/apps/storage/upload/beneficio
+        backgroundApp: /opt/apps/storage/upload/background-app
+        faleAuditoria: /opt/apps/storage/upload/fale-auditoria
+        pendencias: /opt/apps/storage/upload/pendencias
+        anuncioCooperado: /opt/apps/storage/upload/anuncio-cooperado
+        cartaoVirtual: /opt/apps/storage/upload/cartao-virtual
+        protocoloOuvidoria: /opt/apps/storage/upload/protocolo-ouvidoria
+        fotoCampanhaInstitucional: /opt/apps/storage/upload/campanha-institucional
+        fotoClubeVantagem: /opt/apps/storage/upload/clube-vantagem
+        alteracaoCadastral: /opt/apps/storage/upload/alteracao-cadastral
+        fotoParametroProduto: /opt/apps/storage/upload/parametro-produto
+        solicitacaoReembolsoAnexo: /opt/apps/storage/upload/solicitacao-reembolso
+        ptuA1300: /opt/apps/storage/upload/ptu-a1300
   
-redis:
-  host: 172.20.1.150
-  port: 6379
-  
+logging:
+    level:
+        org.springframework:
+            security: INFO
+            data.mongodb.core: INFO
+
+logstash:
+    host: vm-elk-2.us-east1-d.c.ucwbmobile-hom.internal:5010
+
+google.maps.api.key: AIzaSyC7rWADxHtoFLlYmgI8tvpoXJaLZRDvlHE
+
+spring.boot.admin:
+    turbine:
+        url: http://vm-zuul.c.ucwbmobile-hom.internal:8080/hystrix/turbine.stream
+    notify.slack:
+        channel: cloud-prod
+
+app.android:
+    versaoMinima: 1.2.8
+    versaoAtual: 1.2.15
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.cliente
+    
+app.ios:
+    versaoMinima: 1.2.8
+    versaoAtual: 1.2.15
+    linkDownload: https://itunes.apple.com/us/app/unimed-cliente-pr/id1198527640?l=pt&ls=1&mt=8
+
+app.cooperado.android:
+    versaoMinima: 1.1.22
+    versaoAtual: 1.1.29
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.cooperado
+
+app.cooperado.ios:
+    versaoMinima: 1.1.22
+    versaoAtual: 1.1.29
+    linkDownload: https://itunes.apple.com/us/app/unimed-cooperado-pr/id1198529512?l=pt&ls=1&mt=8
+    
+firebase:
+    url: https://ucwbmobile-dev.firebaseio.com
+    json:
+        path: /opt/apps/storage/microservices-jars/ucwbmobile-dev-firebase-adminsdk.json
+
+# OneSignal
+onesignal:
+    ambiente: prod
+
+guiamedico:
+    pesquisaOnline:
+        maxDiasAtualizacao: 90
+        maxDiasAtualizacaoAlerta: 75
+        emailCopiaAlerta: guiamedico@appunimed.com
+
+expiracao:
+    cache:
+        beneficiario.minutos: 30
+        cartao.minutos: 30
+
+res:
+    url:
+        ticket: https://api.unimed.coop.br/res/v1/termo/obter-ticket 
+        termoConsentimento: https://beneficiario.unimed.coop.br/termo_consentimento?ticket=
+        servico: https://svcres.unimed.coop.br/chs-integration-external-services-ptu-demographic/proxy-services
+        servicoFdpr: https://resprod.unimedpr.coop.br:8243/services
+
+pubsub:
+    topics: projects/ucwbmobile-hom/topics
+    subscriptions: projects/ucwbmobile-hom/subscriptions
+
+protocolo:
+        integracao:
+                 gpu: 
+                    grantType: password
+                    userName: YxOlZFhqeK
+                    password: eWtmMCdrWogneBNfadQK
+                    cdTransasao: "021"
+                    cdTransasaoProtocolo: "001"
+                    tpCliente: PORTAL
+                    cdUniOrigem: "0500"
+                    cdUniDestino: "0049"
+                    nrTransacaoPrestadora: "001"
+                    idUsuario: SITE
+                    nrVersaoProtocolo: "002"
+                    cdUnimedIntegracao: "0168"

@@ -1,0 +1,7 @@
+email.suporte: suporte-tecnico@appunimed.com
+
+url:
+    umb:
+        corretora-unimed: 
+            token-cadastro: https://cduwebhom.azurewebsites.net/api/Account/TokenCadastro
+            login: https://cduwebhom.azurewebsites.net/login/token/

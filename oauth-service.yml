@@ -1,0 +1,91 @@
+﻿server:
+    port: ${PORT:${SERVER_PORT:9001}}
+    connection-timeout: 30000
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+
+# Filtro de autenticação com prioridade menor que os enpoints de gerenciamento. 
+# No futuro, alterar o valor para -1 e proteger esses enpoints com autenticação basic.
+security.oauth2.resource.filter-order: 3
+
+authentication: 
+    oauth:
+        clientidBeneficiario: umb
+        secretBeneficiario: umb-secret-key
+        tokenValidityInSeconds: 900
+        refreshTokenValiditySeconds: 15811200 
+        clientidCooperado: umb-cooperado
+        secretCooperado: umb-secret-key-cooperado
+        clientidWeb: umb-web
+        secretWeb: umb-secret-key-web
+        clientidSaude: umb-saude
+        secretSaude: umb-secret-key-saude
+        clientidIa: uvn-ia
+        secretIa: uvn-secret-key-ia
+        clientBarramento: 9999barramento
+        secretBarramento: 9999barramento
+        clientidYuni: umb-yuni
+        secretYuni: umb-yuni-secret-key        
+
+swagger:
+    title: Oauth
+    description: Microserviço das APIs de Oauth
+
+## Facebook ## 
+facebook:
+    appId: 239657109785269
+    appSecret: f5bb10741c6f79e00bbd9a2758cb6d1b
+
+## GOOGLE ##
+google:
+    appId: 544497855649
+
+    
+## MESSAGES
+field:
+    registroCooperadoDto:
+        codigo: Código do cooperado
+        codigoSingular: Código da Unimed
+        codigoConselho: Código do conselho
+        ufConselho: UF do conselho
+        dataNascimento: Data de nascimento
+        cpf: CPF
+    erroFrontDto:
+        app: Aplicativo
+        errorCode: Código do erro HTTP
+
+#Cancelamento async
+
+service:
+    beneficiarioIntegracaoService:
+        verificaPlanoCancelado:
+            threadSleep: 2
+            
+#Login social apple
+apple:
+  clientId: br.net.univision.dev.cliente
+  keyId: 4Y733LLC6H
+  teamId: P29M7BQQGA
+  certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  pr:
+    clientId: br.net.univision.dev.clientePR
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  sp:
+    clientId: br.net.univision.dev.clienteSP
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  manaus:
+    clientId: br.net.univision.dev.clienteManaus
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v  
+  quer:
+    clientId: br.net.univision.dev.quer
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+    

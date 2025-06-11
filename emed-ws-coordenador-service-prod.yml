@@ -1,8 +1,0 @@
-spring:
-  kafka:
-    bootstrap-servers: ${kafka.hosts}
-  redis:
-    host: ${redis.host}
-    port: ${redis.port}
-    repositories:
-      enable: true

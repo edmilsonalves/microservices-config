@@ -1,0 +1,22 @@
+routes:
+  boleto:
+    path: /boleto/**
+    serviceId: beneficiario-service
+  noticia:
+    path: /noticia/**
+    serviceId: singular-service
+  agenda:
+    path: /agenda/**
+    serviceId: agenda-web-service
+  mock:
+    path: /mock/**
+    serviceId: mock-service
+  teleatendimento:
+    path: /teleatendimento/**
+    serviceId: teleatendimento-service
+  tcuida:
+    path: /tcuida/**
+    serviceId: tcuida-service
+  tcuida-scheduler:
+    path: /tcuida-scheduler/**
+    serviceId: tcuida-scheduler-service

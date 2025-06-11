@@ -1,0 +1,12 @@
+﻿server:
+    port: ${PORT:${SERVER_PORT:9055}}
+    connection-timeout: 30000
+
+mongodb:
+    primary:
+        uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+        database: ambiente-teste
+    secondary:
+        uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+        database: appquer-dev
+

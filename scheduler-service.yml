@@ -1,0 +1,48 @@
+server:
+    port: ${PORT:${SERVER_PORT:9040}}
+
+swagger:
+    title: Scheduler
+    description: Microserviço das APIs para Scheduler
+
+scheduler:
+    analytics:
+        cliente: true
+        cooperado: true
+    beneficiario:
+        inadimplencia: 
+            notificacao: true      
+    push:
+        noticia: true
+        evento: true
+        medicamento: true
+        agenda: false
+        utilizacaoPlano: true
+        expirarAnuncios: true
+        questionarioSaude: true
+        orientacaoSaude: true
+        contratcaoVendasOnline: true    
+        campanhaInstitucional: true
+        notificarErroIntegracao: true
+        atualizarEstatisticasNoticias: true
+    ptu:
+        verificaAtualizacao: true
+    sga:
+        expiracaoConvites: true
+    protocolo:
+        atualizaManifestacoes: true
+        atualizaCategorias: true
+    carga:
+        cartoesFamilia: true
+    excluir:
+        compartilhamento:
+            cartao:
+                virtual: true    
+    chat:
+        timeout: true
+        expurgo: true
+        terapias:
+            consultaAgendas: true
+            notificacao: true
+            faltas: false
+            

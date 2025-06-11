@@ -1,0 +1,25 @@
+scheduler:
+    push:
+        noticia: true
+        evento: true
+        agenda: false
+        questionarioSaude: false
+        orientacaoSaude: false
+        contratcaoVendasOnline: true
+        medicamento: false
+        atualizarEstatisticasNoticias: true
+        atualizaCategorias: true
+        appquer:
+            agenda: true
+            questionarioNaoRespondido: true
+            perfilSaudeIncompleto: true
+            atualizarPerfilSaude: true
+            autorizadorMedico: true
+    chat:
+        terapias:
+            consultaAgendas: true
+            notificacao: true
+    lembretes:
+        agendaMedica: false
+    carga: 
+        cartoesFamiliaNaoCriados: false

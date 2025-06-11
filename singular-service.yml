@@ -1,0 +1,91 @@
+server:
+    port: ${PORT:${SERVER_PORT:9004}}
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+   
+swagger:
+    title: Singular
+    description: Microserviço das APIs de Singular
+
+field:
+    contatoDto:
+        emailResposta: E-mail para resposta
+        celularResposta: Celular
+        codigoCooperado: Código do cooperado
+        codigoSingular: Código da Unimed
+        assunto: Assunto
+        idMotivo: Motivo
+        mensagem: Mensagem
+
+umb:
+    path:
+        fotoNoticia: c:/dev/images/noticia
+        fotoBanner: c:/dev/images/banner
+        fotoFaq: c:/dev/images/faq        
+        faleAuditoria: c:/dev/images/fale-auditoria
+        fotoCampanhaInstitucional: c:/dev/images/campanha-institucional
+        fotoClubeVantagem: c:/dev/images/clube-vantagem
+        fotoParametroProduto: /opt/apps/storage/upload/parametro-produto
+
+url:
+    foto:
+        noticia: /app/v1/noticias/foto?file=
+        noticia_v2: /app/v2/noticias/foto?file=
+        campanhaInstitucional: /app/v1/campanhas-institucionais/foto?file=
+        clubeVantagem: /app/v1/clube-vantagem/foto?file=
+    manifestacoes: https://homologagespro.biomeek.net:443/gpr
+    corretora: https://cduwebhom.azurewebsites.net/api/Account/TokenCadastro
+            
+positivacao:
+    limiteTentativas: 4
+    apiKey: AIzaSyBQAgHN09zaS2quuVMOI7FxONe3nsW_Zfo
+    apiHost: https://reconhecimentofacial-dev.appunimed.com       
+    
+positivacaoBeneficiario:
+    limiteTentativas: 4
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://positivacaocliente-test.appunimed.com
+  
+reconhecimentoFacial:
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://reconhecimentofacial-dev.appunimed.com       
+
+res:
+    restricao:
+        dependentesMaiorIdade:
+            consentimento: true
+            desautorizacao: true
+    
+protocolos:
+    intervaloGeracao: 0
+    
+pubsub:
+  topics: projects/ucwbmobile-test-182416/topics
+  subscriptions: projects/ucwbmobile-test-182416/subscriptions
+
+
+terapias:
+    tempo:
+        confirmacaoMinutos: 2880                    # prazo p/ confirmar agendamento horas antes da consulta agendada
+        notificacaoMinutos: 1500                    # prazo p/ notificar paciente horas antes da consulta confirmada
+        faltaMinutos: 2880                          # prazo p/ notificar paciente de ausencia da consulta (falta)
+        janelaAgendaSegundos: 300                   # intervalo default verificacao agendas (equiv. scheduler) 
+        janelaLimiteSegundos: 3600                  # tempo limite p/ verificacao das agendas (caso haja problema scheduler) 
+    pubsub:
+        topic: 
+            confirmacao: ia-terapias-confirmacao
+            notificacao: ia-terapias-notificacao
+            
+movidesk.api:
+    endpoint:
+        tickets: https://api.movidesk.com/public/v1/tickets        
+        persons: https://api.movidesk.com/public/v1/persons
+
+    oauth:
+        basic: 42875e6b-f516-4ce2-a9f1-7b5ce3896466
+
+email.suporte: suporte-tecnico@appunimed.com
+
+# Intervalo para permitir nova avaliação de funcionalidade em dias 
+feedback.intervaloNovaAvaliacaoFuncionalidade: 30

@@ -1,0 +1,39 @@
+spring:
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/uvo_venda_online?useTimezone=true&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+    data:
+        mongodb:
+            database: vendas-qa
+dominio:
+    externo:
+        url:
+            venda: https://gateway-qa.appunimed.com/venda
+            sgp-front: https://sgp-qa.querounimed.com.br
+            venda-contratacao: https://qa.querounimed.com.br
+            venda-adm: https://adm-qa.querounimed.com.br
+uvo:
+    ambiente: QA
+    path:
+        vendaOnline: /opt/apps/storage/upload/venda-online
+        contrato-plano: /opt/apps/storage/upload/venda-online/planos/contratos
+        logo-plano: /opt/apps/storage/upload/venda-online/planos/logo
+        logo-empresa: /opt/apps/storage/upload/venda-online/empresas/logo
+        entidade-classe: /opt/apps/storage/upload/venda-online/entidade-classe
+        documentoComprobatorio: /opt/apps/storage/upload/venda-online/imagens/documentoComprobatorio
+        documentoComprobatorioArquivo: /opt/apps/storage/upload/venda-online/imagens/documentoComprobatorioArquivo
+        guia-usuario: /opt/apps/storage/upload/venda-online/documentos/guia-usuario
+        contrato: /opt/apps/storage/upload/venda-online/documentos/contrato
+        templates: /opt/apps/storage/upload/venda-online/templates
+        documentos-auxiliares: /opt/apps/storage/upload/venda-online/documentos-auxiliares
+        regulamentos: /opt/apps/storage/upload/venda-online/empresas/%s/produtos/%s/regulamentos
+        historico-crm: /opt/apps/storage/upload/venda-online/CRM/historicos
+        historico-crm-etapa: /opt/apps/storage/upload/venda-online/CRM/etapas/historicos
+        cpt: /opt/apps/storage/upload/venda-online/empresas/%s/tipoVenda/%s/cpt
+    password:
+        regex: (?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}

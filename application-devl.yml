@@ -1,0 +1,120 @@
+spring:
+  cloud:
+    config:
+      allowOverride: true
+      overrideNone: false
+      overrideSystemProperties: false 
+  data:
+    mongodb:
+      uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/?authSource=admin&authMechanism=SCRAM-SHA-1
+      database: ambiente-teste
+      auto-index-creation: true
+    kafka:
+        bootstrap-servers: localhost:9092
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3309/umb_administrativo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: unimedmobile
+    password: unimedmobile
+
+ambiente: 
+    descricao: DEV
+    
+app.oauth:
+  clientId: umb
+  clientSecret: umb-secret-key
+  loadBalance: true
+  tokenEndpoint: http://oauth-service/oauth/check_token
+
+# OneSignal
+onesignal:
+  ambiente: dev
+
+firebase:
+  url: https://ucwbmobile-test-182416.firebaseio.com
+  json:
+    path: /opt/apps/firebase/ucwbmobile-test-firebase-adminsdk.json
+
+firestore:
+  projectId: ucwbmobile-test-182416
+
+url:
+  umb:
+    web:
+      rest: https://adm-test.appunimed.com/rest
+
+umb:
+  path:
+    solicitacaoFoto: /tmp/dev/solicitacao-foto
+    fotoNoticia: /tmp/dev/noticia
+    fotoBanner: /tmp/dev/banner
+    fotoFaq: /tmp/dev/faq
+    fotoBeneficio: /tmp/dev/beneficio
+    backgroundApp: /tmp/dev/background-app
+    faleAuditoria: /tmp/dev/fale-auditoria
+    pendencias: /tmp/dev/pendencias
+    anuncioCooperado: /tmp/dev/anuncio-cooperado
+    cartaoVirtual: /tmp/dev/cartao-virtual
+    protocoloOuvidoria: /tmp/dev/protocolo-ouvidoria
+    fotoCampanhaInstitucional: /tmp/dev/campanha-institucional
+    fotoClubeVantagem: /tmp/dev/clube-vantagem
+    alteracaoCadastral: /tmp/dev/alteracao-cadastral
+    fotoParametroProduto: /tmp/dev/parametro-produto
+    solicitacaoReembolsoAnexo: /tmp/dev/solicitacao-reembolso
+    ptuA1300: /tmp/dev/ptu-a1300
+    segunda-via-cartao-anexos: /tmp/dev/segunda-via-cartao/anexos
+    solicitacao-autorizacao: /tmp/dev/solicitacao-autorizacao
+
+guiamedico:
+  pesquisaOnline:
+    maxDiasAtualizacao: 360
+    maxDiasAtualizacaoAlerta: 345
+
+security:
+  jwt:
+    key-store: classpath:keystore.jks
+    key-store-password: changeit
+    key-pair-alias: univisionpairalias
+    key-pair-password: univisionpairpassword
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  max-http-header-size: 32000
+
+#Ribbon
+ribbon:
+  ReadTimeout: 120000
+  ConnectTimeout: 5000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 1
+  MaxAutoRetries: 0
+
+programaRelacionamento:
+  clubeBeneficio:
+    urlApi: https://api.vantagens.club
+    clientId: 4e59f222-a07c-410e-a263-97bad3e3f2db
+    clientSecret: qocHcPeYTCqZKnVmWGCvkoMj12xX3tl3PpR5T2jl
+    granttype: client_credentials
+    scope: "*"
+    url: https://parana.clubeunimed.com.br/
+    
+protocolo:
+        integracao:
+                 gpu: 
+                    grantType: password
+                    userName: YxOlZFhqeK
+                    password: eWtmMCdrWogneBNfadQK
+                    cdTransasao: "021"
+                    cdTransasaoProtocolo: "001"
+                    tpCliente: PORTAL
+                    cdUniOrigem: "0500"
+                    cdUniDestino: "0049"
+                    nrTransacaoPrestadora: "001"
+                    idUsuario: SITE
+                    nrVersaoProtocolo: "002"
+                    cdUnimedIntegracao: "0168"

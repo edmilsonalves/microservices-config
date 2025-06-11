@@ -1,0 +1,22 @@
+﻿spring:
+    kafka:
+        bootstrap-servers: localhost:9092
+
+api:
+    chatbot:
+        endpoint: https://chatbot-test.appunimed.com 
+        key: dXZuLWNoYXRib3QtaWE6dXZuLWNoYXRib3QtaWEtc2VjcmV0LWtleQ==
+    chatbotTerapias:
+        endpoint: https://chatbot-terapias-test.appunimed.com 
+        key: dXZuLWNoYXRib3QtaWE6dXZuLWNoYXRib3QtaWEtc2VjcmV0LWtleQ==
+    node:
+        endpoint: http://instance-cartaovirtual-node:3000
+
+parametro:
+    default:
+        tempo:
+            terapias:
+                janelaAgendaSegundos: 300               # considerar apenas agendamentos dentro da janela (0 = nao validar) 
+                timeout:
+                    confirmacaoMsgAtivaMinutos: 10      # encerrar sessao de chat com pacientes que nao confirmaram consulta
+                    confirmacaoChatMinutos: 5           # encerrar sessao de chat com pacientes que responderam msg ativa

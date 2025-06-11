@@ -1,0 +1,142 @@
+spring:
+    cloud:
+        config:
+            allowOverride: true
+            overrideNone: false
+            overrideSystemProperties: false
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: ambiente-teste
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/umb_administrativo
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+    kafka:
+        bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092
+    sleuth:
+        sampler:
+            percentage: 0.1
+ambiente: 
+    descricao: DEV
+    
+#autenticação /api    
+authentication: 
+    basic: true
+
+eureka:
+    environment: test
+    client:
+        serviceUrl:
+            defaultZone: http://instance-infra-spring2.c.ucwbmobile-test-182416.internal:8761/eureka/
+        healthcheck:
+            enabled: true
+    instance:
+        lease-renewal-interval-in-seconds: 15
+        preferIpAddress: true
+    server:
+        renewalPercentThreshold: 0.1
+        enableSelfPreservation: false
+url: 
+    api: 
+        gateway: https://gateway-test.appunimed.com:8443
+        esb: 
+            v2: https://gateway-test.appunimed.com:8443/barramento/app/v1
+        noticia: https://gateway-test.appunimed.com:8443/noticia
+    umb:
+        web:
+            rest: http://instance-infra-1.c.ucwbmobile-test-182416.internal:8880/umb-web/rest
+            home: https://adm-test.appunimed.com
+
+umb:
+    path:
+        solicitacaoFoto: /opt/apps/storage/upload/solicitacao-foto
+        fotoNoticia: /opt/apps/storage/upload/noticia
+        fotoBanner: /opt/apps/storage/upload/banner
+        fotoFaq: /opt/apps/storage/upload/faq
+        fotoBeneficio: /opt/apps/storage/upload/beneficio
+        backgroundApp: /opt/apps/storage/upload/background-app
+        faleAuditoria: /opt/apps/storage/upload/fale-auditoria
+        pendencias: /opt/apps/storage/upload/pendencias
+        anuncioCooperado: /opt/apps/storage/upload/anuncio-cooperado
+        cartaoVirtual: /opt/apps/storage/upload/cartao-virtual
+        protocoloOuvidoria: /opt/apps/storage/upload/protocolo-ouvidoria
+        fotoCampanhaInstitucional: /opt/apps/storage/upload/campanha-institucional
+        fotoClubeVantagem: /opt/apps/storage/upload/clube-vantagem
+        alteracaoCadastral: /opt/apps/storage/upload/alteracao-cadastral
+        solicitacaoReembolsoAnexo: /opt/apps/storage/upload/solicitacao-reembolso
+        ptuA1300: /opt/apps/storage/upload/ptu-a1300
+
+logstash:
+    host: 10.128.0.10:5010
+
+spring.boot.admin:
+    turbine:
+        url: https://gateway-test.appunimed.com:8443/hystrix/turbine.stream
+    notify.slack:
+        channel: cloud-test
+    client:
+        metadata:
+            user.name: mobile
+            user.password: secretKey
+
+app.android:
+    versaoMinima: 1.0.61
+    versaoAtual: 1.0.76  
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.dev.cliente
+app.ios:
+    versaoMinima: 1.0.61
+    versaoAtual: 1.0.76
+app.cooperado.android:
+    versaoMinima: 1.1.15
+    versaoAtual: 1.1.22
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.dev.cooperado
+app.cooperado.ios:
+    versaoMinima: 1.1.15
+    versaoAtual: 1.1.22
+
+firebase:
+    url: https://ucwbmobile-test-182416.firebaseio.com
+    json:
+        path: /opt/apps/storage/microservices-jars/ucwbmobile-test-firebase-adminsdk.json
+
+firestore:
+    projectId: ucwbmobile-test-182416
+
+# OneSignal
+onesignal:
+    ambiente: dev
+
+guiamedico:
+    pesquisaOnline:
+        maxDiasAtualizacao: 1440
+        maxDiasAtualizacaoAlerta: 1420
+
+server:
+   max-http-header-size: 32000
+
+programaRelacionamento:
+    clubeBeneficio:
+        urlApi: https://api.vantagens.club
+        clientId: 4e59f222-a07c-410e-a263-97bad3e3f2db
+        clientSecret: qocHcPeYTCqZKnVmWGCvkoMj12xX3tl3PpR5T2jl
+        granttype: client_credentials
+        scope: "*"
+        url: https://parana.clubeunimed.com.br/
+
+protocolo:
+        integracao:
+                 gpu: 
+                    grantType: password
+                    userName: YxOlZFhqeK
+                    password: eWtmMCdrWogneBNfadQK
+                    cdTransasao: "021"
+                    cdTransasaoProtocolo: "001"
+                    tpCliente: PORTAL
+                    cdUniOrigem: "0500"
+                    cdUniDestino: "0049"
+                    nrTransacaoPrestadora: "001"
+                    idUsuario: SITE
+                    nrVersaoProtocolo: "002"
+                    cdUnimedIntegracao: "0168"

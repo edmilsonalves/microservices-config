@@ -1,0 +1,41 @@
+server:
+  port: ${PORT:${SERVER_PORT:9004}}
+
+swagger:
+  title: Singular
+  description: Microserviço das APIs de Singular
+
+positivacao:
+  limiteTentativas: 4
+  apiKey: AIzaSyBQAgHN09zaS2quuVMOI7FxONe3nsW_Zfo
+  apiHost: https://reconhecimentofacial-dev.appunimed.com
+  
+positivacaoBeneficiario:
+  limiteTentativas: 4
+  apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+  apiHost: https://positivacaocliente-test.appunimed.com
+  
+reconhecimentoFacial:
+  apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+  apiHost: https://reconhecimentofacial-dev.appunimed.com
+
+pubsub:
+  topics: projects/ucwbmobile-test-182416/topics
+  subscriptions: projects/ucwbmobile-test-182416/subscriptions
+
+movidesk.api:
+    endpoint:
+        tickets: https://api.movidesk.com/public/v1/tickets        
+        persons: https://api.movidesk.com/public/v1/persons
+
+    oauth:
+        basic: eeb7f6bc-4b80-4c88-9ae9-0892ed5a35e2
+
+# Intervalo para permitir nova avaliação de funcionalidade em dias 
+feedback.intervaloNovaAvaliacaoFuncionalidade: 1
+
+terapias:
+    tempo:
+        confirmacaoMinutos: 2880                    # prazo p/ confirmar agendamento horas antes da consulta agendada
+url:
+  corretora: https://cduwebhom.azurewebsites.net/api/Account/TokenCadastro

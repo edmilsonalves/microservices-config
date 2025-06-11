@@ -1,0 +1,23 @@
+server:
+    port: ${PORT:${SERVER_PORT:9045}}
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+   
+swagger:
+    title: Positivação
+    description: Microserviço das APIs de Positivação
+            
+positivacao:
+    limiteTentativas: 4
+    apiKey: AIzaSyBQAgHN09zaS2quuVMOI7FxONe3nsW_Zfo
+    apiHost: https://reconhecimentofacial-dev.appunimed.com       
+    
+positivacaoBeneficiario:
+    limiteTentativas: 4
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://positivacaocliente-test.appunimed.com
+  
+reconhecimentoFacial:
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://reconhecimentofacial-dev.appunimed.com       

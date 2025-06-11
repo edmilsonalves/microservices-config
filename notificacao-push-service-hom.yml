@@ -1,0 +1,28 @@
+firebase:
+    projeto: ucwbmobile-dev
+    
+# OneSignal
+onesignal:
+    beneficiario:
+        appId: d9ff0792-f6ba-4633-a2d2-87f2f5708acb
+        authorization: Y2RiZDY1M2UtN2QxYi00MzIyLTg3OGMtMzg2OTg4YzUxMGIz
+    cooperado:
+        appId: d6bb12bf-1a19-4c4d-b1a5-8fc471ec0ebd
+        authorization: YzA1MTQ0ZDctM2UxOC00MTNkLTg4ZWYtNzJiNTcyODJjZGM3
+    saude:
+        appId: ee435411-0faf-413f-9189-b80e49f6d281
+        authorization: MDNkNGI1YTQtYTVmYS00MGFmLWE1Y2MtNjRmZGQ1MDQxMzlk
+    quer:
+        appId: 53f81f7c-472d-47d4-a916-d045e7a807fe
+        authorization: ZjY1NTg3ODAtMmFkMi00OWZjLWJlOWMtNTdhMjk3ZjFkYzMy
+
+#onesignal:
+#    beneficiario:
+#        appId: d9ff0792-f6ba-4633-a2d2-87f2f5708acb
+#        authorization: Y2RiZDY1M2UtN2QxYi00MzIyLTg3OGMtMzg2OTg4YzUxMGIz
+#    cooperado:
+#        appId: d6bb12bf-1a19-4c4d-b1a5-8fc471ec0ebd
+#        authorization: YzA1MTQ0ZDctM2UxOC00MTNkLTg4ZWYtNzJiNTcyODJjZGM3
+#    saude:
+#        appId: ee435411-0faf-413f-9189-b80e49f6d281
+#        authorization: MDNkNGI1YTQtYTVmYS00MGFmLWE1Y2MtNjRmZGQ1MDQxMzlk

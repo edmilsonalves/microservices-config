@@ -1,54 +1,157 @@
-datasource:
-  maximum-pool-size: 10
-  minimum-idle: 2
-  url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 172.20.3.51)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME =pdb_emedhml.subnethmlprivat.vcnemed.oraclevcn.com)))
-
 spring:
-  datasource.hikari:
-    maximum-pool-size: ${datasource.maximum-pool-size}
-    minimum-idle: ${datasource.minimum-idle}
+    cloud:
+        config:
+            allowOverride: true
+            overrideNone: false
+            overrideSystemProperties: false
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: test_qa
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/umb_administrativo
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+    kafka:
+        bootstrap-servers: PLAINTEXT://kafka-1-vm.c.appunimed-qa.internal:9092
+    sleuth:
+        sampler:
+            percentage: 0.1
 
+ambiente: 
+    descricao: QA
+#autenticação /api    
+authentication: 
+    basic: false
 
 eureka:
-  host: eureka-server
-  port: 8761
-  name: eureka
-  client:
-    serviceUrl:
-      defaultZone: http://${eureka.host}:${eureka.port}/${eureka.name}
-    healthcheck:
-      enabled: true
-
-app:
-  storage:
-    baseUrl: '${GATEWAY_BASE_URL:https://gateway4all-qa.emedbr.com:8443}/storage'
-    type: filesystem
-    baseDir: /app/storage
-    uploadDir: upload
-    useSignedUrl: true
-    maxFileSizeBytes: 41943040
-    maxImageSizeBytes: 2097152
-  google:
-    projectId: ucwbmobile-dev
-    storage:
-      type: google
-      bucketName: '${STORAGE_BUCKET_NAME:emed4all-hom}'
-      # Google Cloud Storage Key para acesso ao bucket. Deve ser a chave Json em formato BASE64.
-      key: ${STORAGE_KEY:ewogICJ0eXBlIjogInNlcnZpY2VfYWNjb3VudCIsCiAgInByb2plY3RfaWQiOiAidWN3Ym1vYmlsZS1kZXYiLAogICJwcml2YXRlX2tleV9pZCI6ICJjY2E0ZjNkYWNjNzhiYzI1MDA2NWVkZDZlY2ExMjcyYTc1OTIzNzk1IiwKICAicHJpdmF0ZV9rZXkiOiAiLS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tXG5NSUlFdmdJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0JLZ3dnZ1NrQWdFQUFvSUJBUUR3blBqTWJTaXR5cXFDXG53QXczWFBXbjlKaHJvK0JZUXMzZERSbk5PNEkrVlR3UVNnK1BQdEtObTI5NkR3SUpqNDlicm1jNlF3eEhRYjdZXG5VRmgzWGVqQnM4VHBoSi9taXczdWR3eUZ0eU12ZnZFQndzeXVwRDdGMUVRQ1F3TlFDYXVXRFd1ZlV6MlkzUHlSXG52UmpYeThGaENOdVpZcFg5bnY2Y0dSam5PSkU0SWdBcFFUeVNmSStVcWNkUVRlT2lKckN1WWZRL0g2bFA2dFpIXG5zUWxQeXhVZlhkR3o1VU9JT0JNSzVDbVF3b0xnQzQwV0hMY1d4dE5zaG1HZjdNTFRJR1ZIOXVnblBxWThxNmNoXG5ySzBSejYyNTJXQnZzWm85UkxQR3UydDFaSUhCWjJhRjM1a3JubXRsTU85SGZqem5TMFN4ci9WNVNXbmljWERsXG5HamI3K0kxeEFnTUJBQUVDZ2dFQUJtbFlZOXpMY2JOdHp4QWVXSXluUUhONXdFY3g5TjExZzRkcGdaallBL1hjXG56NGo1cmRVbkRTandLUzRraUJhd09PbUdkMUg1WTNOZFg0R1I2ZW14c3hUKzVwaThjMkNQTXM4dlMrZUdZMzlHXG55QnpsdkFoRkRVWjJZczBMQUkzOEZDMHdDZmg3aUFyb3hyQVFRbWZSTTZ4bHdFby81RU0ycTZMV1BBc1ExanNIXG5KSHZPSUdOU2hHcE5RZW1mMk9ibUVJTEhDS0d0Lzd6ZjVnRXlDanBERkpZOUVFTzNDM1VnN2JaZUoyQWhWNDJTXG5IQTVVdTljREJ1eXJOZUJwQldZVzNXQjBxeWp1b1RmazJFZlM2WUlIVitSM2ZHUy9RcjRISGRXK1lOS0VZTmVDXG53b3IySjhRd1J0NnY1SFcvS2kxTTMrUXk1bnRtNGtnRjJVTzJ4SDNqSlFLQmdRRC90bDdLcmN1S25OZEIzRkFqXG4zMmJzblVPTjBVZUtFYWhNK0tiMEQxa0FEeEo4RmZvSzZGcWFIMkdNOUc1eGpFZXFFMVV1VmxLRW4rTlpTQWRxXG50Z0JibTFqWlBHMHNnUHZNQWsrQ3ZHaTkvVHpsUEdVSWJvZHZJU0lmdmFOYmpzL3orZVFGUDFQU3ZkVEdldEQxXG4zblFCQ0NnWDYreCtlWTIwcnBHOFJrdjZBd0tCZ1FEdzRrRUJiYVFpRkszR1E3c0pJR2tKWk9VeXE3TVdsUGEwXG5GU3VZN1ljTWZGWFh0N1BwREZHRWJTY1BTSzRSZUt1bWtsTzFNWGRDV1NxUDlhTHozMHV2RDNqRXBxbUpEZkpOXG5WM1czUWlpQ2ZOOEhIb3ZtUldOdGEzaUdoQ3ROU1FsY0Q3WjZwclVFTWdySlRCSHhyZ2dlL0dUUHVMWE1obXJUXG5iaWZyTnNaNmV3S0JnUUR2TXpCKzFZNVdEcHNKbjhaVG1ESVdXcElMd2wzeVdNd2ZuR1hJWGViNk9COHBkZ0ZkXG5YTGNML3hqb211b0pTNWpxRG9XYS8rTFc3eDNqc1k1R2t4UEluWXZDUWxVNTBUbzVQMXdUUnAyUVE2aElJM083XG5MSEdDVWZNeXo5bFUxMFhOeXM4eTNXZFM5b0pvWEJER1BoNHpyT2FjWWZQcTUxZllVWWhBSDE0STh3S0JnUUNOXG5MbDZoUXF5ZldQVmNyZGZTaW85bGRTQXNhWnZtVVZxaXc0R3crUTVkRUFhVUQxUS84L3RYSFU1MlU4Zko3NnJUXG5UeElHc2I1UFFjbURaSm1rUzZ5bEp2RkdlTlFHd3dqUHNjSUpyWm5tbU45eTRjRm5MaVlQUEowQVlqaXE3SEt5XG41WGF6UGovNy9JUjc1THpqcEhlWUNaL2dhMGNLWDRIKzk2SW41d3UvUHdLQmdES0o2NHRmak9DVjJndzN6ZkY3XG5aUmtObXpEcm9CZ1NxazlHQzVzNTlKaGw5WjJERmw4b0duMldoamNVSHA5eGpyMmZhcStKVVdoNDdkdGV0cnNoXG44bU45S3pEcjgzZG1nSTA3aGJJbVJ0Mmlha0xWUUZhOStsUFpZWEhqQW1jRmMxb0t4NXNFeldkZ2Q1NEQ1YWsyXG4wb2lBUzFVVWZaYlNyelBaV2NaditmQjJcbi0tLS0tRU5EIFBSSVZBVEUgS0VZLS0tLS1cbiIsCiAgImNsaWVudF9lbWFpbCI6ICJlbWVkLXN0b3JhZ2UtdXBsb2FkLWRvd25sb2FkQHVjd2Jtb2JpbGUtZGV2LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwKICAiY2xpZW50X2lkIjogIjExMzQ5MjYyMTMwNTAyNjY1MTY3MiIsCiAgImF1dGhfdXJpIjogImh0dHBzOi8vYWNjb3VudHMuZ29vZ2xlLmNvbS9vL29hdXRoMi9hdXRoIiwKICAidG9rZW5fdXJpIjogImh0dHBzOi8vb2F1dGgyLmdvb2dsZWFwaXMuY29tL3Rva2VuIiwKICAiYXV0aF9wcm92aWRlcl94NTA5X2NlcnRfdXJsIjogImh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL29hdXRoMi92MS9jZXJ0cyIsCiAgImNsaWVudF94NTA5X2NlcnRfdXJsIjogImh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL3JvYm90L3YxL21ldGFkYXRhL3g1MDkvZW1lZC1zdG9yYWdlLXVwbG9hZC1kb3dubG9hZCU0MHVjd2Jtb2JpbGUtZGV2LmlhbS5nc2VydmljZWFjY291bnQuY29tIgp9Cg}
+    environment: qa
+    client:
+        serviceUrl:
+            defaultZone: http://vm-eureka.us-central1-a.c.appunimed-qa.internal:8080/eureka/
+        healthcheck:
+            enabled: true
+    instance:
+        lease-renewal-interval-in-seconds: 15
+        preferIpAddress: true
+    server:
+        renewalPercentThreshold: 0.1
+        enableSelfPreservation: false
 
 kafka:
-  #hosts: PLAINTEXT://164.152.70.221.128:9094,PLAINTEXT://146.235.57.4:9094,PLAINTEXT://150.230.70.178:9094,PLAINTEXT://144.22.253.92:9094
-  hosts: PLAINTEXT://kafka:9092
+    bootstrap:
+        servers: PLAINTEXT://kafka-1-vm.c.appunimed-qa.internal:9092
 
-mongodb:
-  host: mongodb
-  port: 27017
-  username: mongodb
-  password: 25ymtkBpc4tf2wNHeTpW
+url: 
+    api: 
+        gateway: https://gateway-qa.appunimed.com
+        esb: 
+            v2: https://gateway-qa.appunimed.com/barramento/app/v1
+        noticia: https://gateway-qa.appunimed.com/noticia
+    umb:
+        web:
+            rest: http://web-adm.us-central1-a.c.appunimed-qa.internal:8080/umb-web/rest
+            home: https://adm-qa.appunimed.com
+umb:
+    path:
+        solicitacaoFoto: /opt/apps/storage/upload/solicitacao-foto
+        fotoNoticia: /opt/apps/storage/upload/noticia
+        fotoBanner: /opt/apps/storage/upload/banner
+        fotoFaq: /opt/apps/storage/upload/faq
+        fotoBeneficio: /opt/apps/storage/upload/beneficio
+        backgroundApp: /opt/apps/storage/upload/background-app
+        faleAuditoria: /opt/apps/storage/upload/fale-auditoria
+        pendencias: /opt/apps/storage/upload/pendencias
+        anuncioCooperado: /opt/apps/storage/upload/anuncio-cooperado
+        cartaoVirtual: /opt/apps/storage/upload/cartao-virtual
+        protocoloOuvidoria: /opt/apps/storage/upload/protocolo-ouvidoria
+        fotoCampanhaInstitucional: /opt/apps/storage/upload/campanha-institucional
+        fotoClubeVantagem: /opt/apps/storage/upload/clube-vantagem
+        alteracaoCadastral: /opt/apps/storage/upload/alteracao-cadastral
+        solicitacaoReembolsoAnexo: /opt/apps/storage/upload/solicitacao-reembolso
+        ptuA1300: /opt/apps/storage/upload/ptu-a1300
 
-redis:
-  host: redis
-  port: 6379
-  password: zilxiq-cyrzew-woqVi0-futmuw-cusnik-riqzyk
-  
+logstash:
+    host: 10.128.0.10:5010
 
+spring.boot.admin:
+    turbine:
+        url: https://gateway-qa.appunimed.com/hystrix/turbine.stream
+    notify.slack:
+        channel: cloud-qa
+    client:
+        metadata:
+            user.name: mobile
+            user.password: secretKey
+
+app.android:
+    versaoMinima: 1.0.61
+    versaoAtual: 1.0.76  
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.dev.cliente
+app.ios:
+    versaoMinima: 1.0.61
+    versaoAtual: 1.0.76
+app.cooperado.android:
+    versaoMinima: 1.1.15
+    versaoAtual: 1.1.22
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.dev.cooperado
+app.cooperado.ios:
+    versaoMinima: 1.1.15
+    versaoAtual: 1.1.22
+
+firebase:
+    url: https://ucwbmobile-test-182416.firebaseio.com
+    json:
+        path: /opt/apps/storage/microservices-jars/ucwbmobile-test-firebase-adminsdk.json
+
+firestore:
+    projectId: ucwbmobile-test-182416
+
+# OneSignal
+onesignal:
+    ambiente: qa
+
+management:
+    endpoints:
+        web:
+            exposure.include: 'health,info,prometheus'
+    endpoint:
+        metrics.enabled: true
+        prometheus.enabled: true
+        refresh.enabled: true
+    metrics:
+        export:
+            prometheus.enabled: true
+    health:
+      show-details: ALWAYS
+
+guiamedico:
+    pesquisaOnline:
+        maxDiasAtualizacao: 900
+        maxDiasAtualizacaoAlerta: 850
+
+programaRelacionamento:
+    clubeBeneficio:
+        urlApi: https://api.vantagens.club
+        clientId: 4e59f222-a07c-410e-a263-97bad3e3f2db
+        clientSecret: qocHcPeYTCqZKnVmWGCvkoMj12xX3tl3PpR5T2jl
+        granttype: client_credentials
+        scope: "*"
+        url: https://parana.clubeunimed.com.br/
+        
+protocolo:
+        integracao:
+                 gpu: 
+                    grantType: password
+                    userName: YxOlZFhqeK
+                    password: eWtmMCdrWogneBNfadQK
+                    cdTransasao: "021"
+                    cdTransasaoProtocolo: "001"
+                    tpCliente: PORTAL
+                    cdUniOrigem: "0500"
+                    cdUniDestino: "0049"
+                    nrTransacaoPrestadora: "001"
+                    idUsuario: SITE
+                    nrVersaoProtocolo: "002"
+                    cdUnimedIntegracao: "0168"

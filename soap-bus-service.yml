@@ -1,0 +1,129 @@
+server:
+    port: 9040
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+swagger:
+    title: Barramento Soap
+    description: Microserviço dos WSDLs de Barramento
+
+res:
+    consultaEstado:
+        codigo: "00840"
+        versao: "1.00"
+    brasil:
+        request:
+            versao: "1.00"
+            idTributariaCnpj: "28790696000116"
+            idTributariaCpf: "75777402925"
+            entidadeCodigo: 9999
+            sistemaDesignacao: Unimed do Brasil
+            sistemaFornecedor: Unimed do Brasil
+            idCabecalho: ae07e878-d05b-48ee-883e-222dedc94c8c
+        termoAceite:
+            ambiente: APPLICATION
+            ip: "187.72.46.120"
+            login: Hosotal_joao
+        acesso:
+            user: U058_EMED
+            pass: U058_EMED
+        quer:
+            acesso:
+                user: U058_EMED
+                pass: U058_EMED
+        servico:
+            consulta:
+                webservice:
+                    endpointWsdl: /query-patient-status/query-patient-status-proxy-service
+                profissional:
+                    abreviatura: univision
+                    cnpj: "29931216000152"
+                    cpf: ""
+            inativacao:
+                webservice:
+                    endpointWsdl: /inactivate-patient/inactivate-patient-proxy-service
+                    urlPtuClinico: http://ptu-clinico.unimed.com.br/schemas/servico/inativacao/res/v1.00
+                    requestName: requisicaoInativacaoRES
+                profissional:
+                    abreviatura: prof.naosaude
+                    cnpj: ""
+                    cpf: "18993292850"
+    federacao:
+        termoAceite:
+            ambiente: MOBILE
+            ip: "184.75.45.125"
+            imei: "428525896325485"
+            nome: "TermoAceiteRES.pdf"
+            tipo: "text/html"
+            acao: ACTIVATE
+        acesso:
+            user: univision
+            pass: QxMFwe41
+        quer:
+            acesso:
+                user: appquer     # [fdpr] hml_unimed
+                pass: W6!5fqY7z5   # [fdpr] X25etG76A1kx43 
+        consultaTermoConsentimento:
+            webservice:
+                endpointWsdl: /00860_consultaTermoConsentimento.00860_consultaTermoConsentimentoHttpsSoap11Endpoint
+                namespace: http://integracao-res.unimed.com.br/schemas/servico/consulta/dados-demograficos/padrao-unimed/consulta-termo-consentimento/
+                localpart: 00860_consultaTermoConsentimento
+        ativaBeneficiario:
+            webservice:
+                endpointWsdl: /00830_ativaBeneficiario.00830_ativaBeneficiarioHttpsSoap11Endpoint
+                namespace: http://integracao-res.unimed.com.br/schemas/servico/recebimento/dados-demograficos/ativacao-beneficiario
+                localpart: 00830_ativaBeneficiario    
+        desativaBeneficiario:
+            webservice:
+                endpointWsdl: /00850_desativaBeneficiario.00850_desativaBeneficiarioHttpsSoap11Endpoint
+                namespace: http://integracao-res.unimed.com.br/schemas/servico/recebimento/dados-demograficos/desativacao-beneficiario
+                localpart: 00850_desativaBeneficiario      
+        consultaStatusBeneficiario:
+            webservice:
+                endpointWsdl: /00820_consultaStatusBeneficiario.00820_consultaStatusBeneficiarioHttpsSoap11Endpoint
+                namespace: http://integracao-res.unimed.com.br/schemas/servico/consulta/dados-demograficos/padrao-unimed/consulta-status-beneficiario/
+                localpart: 00820_consultaStatusBeneficiario
+        dadosClinicos:
+            webservice:
+                endpointWsdl: /00790_consultaDadosClinicos.00790_consultaDadosClinicosHttpsSoap11Endpoint
+                namespace: http://integracao-res.unimed.com.br/schemas/servico/consulta/dados-clinicos/padrao-unimed/ConsultaDadosClinicosPadrao/
+                localpart: 00790_consultaDadosClinicos
+            pesquisa:
+                nivel: DADOS_CLINICOS
+                area: EXAMES_DE_LABORATORIO
+            profissional:
+                abreviatura: univision
+                login: univision
+                cpf: ""
+                cnpj: "29931216000152"
+            conselho:
+                codigo: "02"
+                terminologia: "conselho-profissional#1.00"
+                numero: "555666"
+            unidadeFederativa:
+                codigo: SP
+                terminologia: "unidades-federativas#1.00"
+            filtro:
+                primeiroResultado: 0
+                maxResultados: 100
+        anexos:
+            webservice:
+                endpointWsdl: /00840_consultaAnexoDadosClinicos.00840_consultaAnexoDadosClinicosHttpsSoap11Endpoint
+                namespace: http://integracao-res.unimed.com.br/schemas/servico/consulta/dados-clinicos/padrao-unimed/ConsultaAnexoDadosClinicos/
+                localpart: 00840_consultaAnexoDadosClinicos
+            profissional:
+                abreviatura: univision
+                login: univision
+                cpf: ""
+                cnpj: "29931216000152"
+            conselho:
+                codigo: "02"
+                terminologia: "conselho-profissional#1.00"
+                numero: "555666"
+            unidadeFederativa:
+                codigo: SP
+                terminologia: "unidades-federativas#1.00"
+            filtro:
+                primeiroResultado: 0
+                maxResultados: 1000
+        

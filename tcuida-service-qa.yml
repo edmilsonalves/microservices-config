@@ -1,0 +1,15 @@
+firestore:
+  projectId: appquer-dev
+
+firebase:
+  url: https://appquer-dev.firebaseio.com
+  json:
+    path: /opt/apps/storage/microservices-jars/appquer-dev-firebase-adminsdk-wxrlz.json
+
+appquer.storage.basePath: /opt/apps/storage/upload/tcuida
+tcuida.storage.basePath: /opt/apps/storage/upload/tcuida
+
+spring:
+  data:
+    mongodb:
+      database: tcuida-qa

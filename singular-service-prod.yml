@@ -1,0 +1,44 @@
+server:
+  port: ${PORT:${SERVER_PORT:9004}}
+
+swagger:
+  title: Singular
+  description: Microserviço das APIs de Singular
+
+field:
+  contatoDto:
+    emailResposta: E-mail para resposta
+    celularResposta: Celular
+    codigoCooperado: Código do cooperado
+    codigoSingular: Código da Unimed
+    assunto: Assunto
+    idMotivo: Motivo
+    mensagem: Mensagem
+url:
+  foto:
+    noticia: /app/v1/noticias/foto?file=
+    campanhaInstitucional: /app/v1/campanhas-institucionais/foto?file=
+    clubeVantagem: /app/v1/clube-vantagem/foto?file=
+  umb:
+    corretora-unimed: 
+      token-cadastro: https://www.corretoraunimed.com.br/api/Account/TokenCadastro
+      login: https://www.corretoraunimed.com.br/login/token/  
+
+positivacao:
+  limiteTentativas: 4
+  apiKey: AIzaSyBUsA-XzNcpBwa49t-Lx44r66w_jQXigFE
+  apiHost: https://verificacaofacial.appunimed.com
+
+positivacaoBeneficiario:
+    limiteTentativas: 4
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://positivacaocliente.appunimed.com
+  
+reconhecimentoFacial:
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: https://verificacaofacial.appunimed.com
+
+
+pubsub:
+  topics: projects/ucwbmobile-hom/topics
+  subscriptions: projects/ucwbmobile-hom/subscriptions

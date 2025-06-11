@@ -1,0 +1,19 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:Un1m3dM0b!l3@10.142.0.16/?authSource=admin&authMechanism=SCRAM-SHA-1
+      database: tcuida-prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+tcuida:
+  mail:
+    from: naoresponder@appquer.com.br
+  storage.basePath: /opt/apps/storage/upload/tcuida
+
+notificacao.versao.api: V2
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.142.0.110:8080/eureka/

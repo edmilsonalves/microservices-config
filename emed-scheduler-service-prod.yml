@@ -1,3 +1,0 @@
-spring:
-  kafka:
-    bootstrap-servers: PLAINTEXT://${kafka.host}:${kafka.port}

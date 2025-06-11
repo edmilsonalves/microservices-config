@@ -1,0 +1,66 @@
+server:
+    port: ${PORT:${SERVER_PORT:9081}}
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+        
+spring:
+    jpa:
+        show_sql: false
+    kafka:
+        consumer:
+            group-id: chatbot
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+            retries: 2
+    cloud:
+        gcp.security.firebase.enabled: false
+
+
+swagger:
+    title: Chatbot
+    description: Chatbot API
+
+parametro:
+    default:
+        # TODO excluir abaixo 'singular' apos implantacao 57975 -> cadastro client-esb
+        singular:                                       # singulares default para requisicao ao bus (endpoints default)
+            whatsapp: '0975'
+            transbordo: '0975'
+            terapias: '0032'
+        tempo:
+            delayEncerramentoMili: 1500                 # considerar delay para evitar encerramento antes de msg final
+            # TODO excluir abaixo 'terapias' apos implantacao 99992 (fase 2) pois foi migrado p/ singular
+            terapias:
+                confirmacaoMinutos: 2880                # prazo pra confirmar agendamento horas antes da consulta agendada
+                notificacaoMinutos: 1440                # prazo pra notificar paciente horas antes da consulta confirmada
+                janelaAgendaSegundos: 300               # considerar apenas agendamentos dentro da janela 
+                janelaLimiteSegundos: 3600              # considerar tempo limite p/ verificacao da janela de envio 
+                timeout:
+                    confirmacaoMsgAtivaMinutos: 1430    # encerrar sessao de chat com pacientes que nao confirmaram consulta
+                    confirmacaoChatMinutos: 60          # encerrar sessao de chat com pacientes que responderam msg ativa
+            timeout:
+                sessao:
+                    bot.minutos: 5                      # TODO deletar depois da implantacao 57975
+                    transbordo.minutos: 1440            # TODO deletar depois da implantacao 57975
+                    botMinutos: 5                       # tempo padrao p/ expirar sessão (chat) 
+                    transbordoMinutos: 1440             # transbordo 0 = nao expirar
+                    templateMinutos: 1430               # apos envio de mensagem ativa p/ whatsapp (template message) 
+                    chatMinutos: 60                     # durante troca de mensagem via whatsap (session message)
+            expurgo:
+                mensagens.horas: 720
+        message:
+            start: '#start'
+
+# TODO excluir abaixo 'terapias' apos implantacao 99992 (fase 2) pois foi migrado p/ singular
+pubsub:
+    topic: 
+        terapias:
+            confirmacao: ia-terapias-confirmacao
+            notificacao: ia-terapias-notificacao
+
+connection.read: 60000

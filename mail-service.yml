@@ -1,0 +1,32 @@
+server:
+    port: ${PORT:${SERVER_PORT:9009}}
+    
+swagger:
+    title: E-mail
+    description: Microserviço das APIs de E-mail
+
+spring:
+    mail:
+        host: email-smtp.us-east-1.amazonaws.com
+        port: 2587
+        username: AKIAVQV3IQRIVJLCYRNK
+        password: BDCAWS3vMLmRjMoHAba1szirfjlJdG7X/huaX6bwkV+t
+        protocol: smtp
+        defaultEncoding: UTF-8
+        properties:
+            mail:
+                smtp:
+                    from: mobile-dev@appunimed.com
+                    auth: true
+                    starttls:
+                       enable: true
+                    socketFactory:
+                       class: javax.net.ssl.SSLSocketFactory
+            personal: App Unimed
+        smtp:
+            socketFactory:
+                fallback: true
+
+logging: 
+    level: 
+        com.sun.mail.smtp: INFO

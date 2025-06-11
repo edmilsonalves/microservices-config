@@ -1,0 +1,20 @@
+server:
+  port: ${PORT:8080}
+  undertow:
+    ioThreads: 15
+    workerThreads: 300
+
+zuul:
+  ignoredServices: "*"
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    teleatendimento:
+      path: /teleatendimento/**
+      serviceId: teleatendimento-service
+    demonstrativo:
+      path: /demonstrativo/**
+      serviceId: cooperado-service
+    evento-cooperado:
+      path: /evento-cooperado/**
+      serviceId: cooperado-service
+      

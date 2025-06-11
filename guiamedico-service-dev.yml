@@ -1,0 +1,16 @@
+spring:
+    data:
+        mongodb:
+            database: guiamedico_db_test
+            auto-index-creation: false
+
+guiamedico:
+    download:
+        pathGuia: c:/dev/guia-medico/
+        pathExcecoes: c:/dev/guia-medico/excecoes
+        status:
+            timeoutSingular: 1500
+            timeoutTotal: 3000
+    excecoes:
+        redirectPortal: 0975-3550308,0975-5300108,0975-2900702,0975-2905701,0975-2906501,0975-2919207,0975-2927408,0975-3112000,0975-2513851,0975-3505708,0975-3547809
+

@@ -1,0 +1,27 @@
+server:
+  port: ${PORT:${SERVER_PORT:9023}}
+  undertow:
+    ioThreads: 15
+    workerThreads: 300
+
+spring:
+  jpa:
+    show_sql: true
+
+swagger:
+  title: Teletendimento
+  description: Teleatendimento API
+
+management:
+  endpoints:
+    web:
+      base-path: /
+      path-mapping:
+        health: actuator/health
+      exposure.include: metrics,prometheus,health,info,error,status
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
+  metrics:
+    export:
+      prometheus.enabled: true

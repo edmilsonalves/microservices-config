@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:oracle:thin:@10.10.15.58/XE
-  data:
-    mongodb:
-      uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/emed-bus?authSource=admin&authMechanism=SCRAM-SHA-1
-  #Kafka properties
-  kafka:
-    bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092

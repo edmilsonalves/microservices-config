@@ -1,9 +1,0 @@
-server:
-  port: 9009
-spring:
-  application:
-    name: emed-storage-server
-
-swagger:
-  title: Storage
-  description: Microserviço para acesso ao Storage - Upload e Download de arquivos.

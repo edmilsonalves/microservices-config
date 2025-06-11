@@ -1,0 +1,26 @@
+firestore:
+  projectId: appquer-dev
+
+firebase:
+  url: https://appquer-dev.firebaseio.com
+  json:
+    path: c:\dev\firebase\appquer-dev-firebase-adminsdk-wxrlz.json
+
+spring:
+  data:
+    mongodb:
+      database: appquer-dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+## FIT BIT ##
+fitbit.api:
+  redirectUri: http://localhost:9032/api/v1/fitbit/auth/callback
+
+# Login social apple
+apple:
+  quer:
+    clientId: br.com.appquer.dev
+    keyId: QVA6W8UN48
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgxYNu+GCdW2ychUgHr79hX6JYme9bvMJLKAInCQXGfr6gCgYIKoZIzj0DAQehRANCAAQi+84gUGVGnTc2zoqEuuTpGvPG0Q2nb1yoFH98/M08XBiVYrp1RLU9MMoZqPCcAKfZIew2TTyguxkRK7Wa4Op+

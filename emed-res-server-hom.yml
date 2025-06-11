@@ -1,7 +1,0 @@
-server:
-  port: 9103
-spring:
-  application:
-    name: emed-res-server
-  kafka:
-    bootstrap-servers: ${kafka.hosts}

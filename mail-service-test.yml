@@ -1,0 +1,18 @@
+server:
+    port: ${PORT:${SERVER_PORT:9009}}
+    
+swagger:
+    title: E-mail
+    description: Microserviço das APIs de E-mail
+
+spring:
+    mail:
+        properties:
+            mail:
+                smtp:
+                    from: mobile-hom@appunimed.com
+            personal: App Unimed (Test)
+
+logging: 
+    level: 
+        com.sun.mail.smtp: INFO

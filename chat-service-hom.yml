@@ -1,0 +1,10 @@
+# TODO excluir apos implantacao 57975 -> cadastro client-esb ** deixar apenas api.node.endpoint **
+api:
+    chatbot:
+        endpoint: https://chatbot-hom.appunimed.com
+        key: dXZuLWNoYXRib3QtaWE6dXZuLWNoYXRib3QtaWEtc2VjcmV0LWtleQ==
+    chatbotTerapias:
+        endpoint: https://chatbot-terapias-hom.appunimed.com
+        key: dXZuLWNoYXRib3QtaWE6dXZuLWNoYXRib3QtaWEtc2VjcmV0LWtleQ==
+    node:
+        endpoint: http://cartaovirtual-hom.private.univision.hom

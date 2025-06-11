@@ -1,0 +1,23 @@
+spring:
+    data:
+        mongodb:
+            database: vendas-dev
+    datasource:
+        url: jdbc:mysql://localhost:3309/uvo_venda_online?useTimezone=true&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile 
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+
+dominio:
+    externo:
+        url:
+            venda: http://localhost:8443/venda
+            sgp-front: http://localhost:4201
+            venda-contratacao: http://localhost:4200
+            venda-adm: http://localhost:8087
+uvo:
+    password:
+        regex: (?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}

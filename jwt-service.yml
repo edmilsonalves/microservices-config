@@ -1,0 +1,103 @@
+﻿server:
+    port: ${PORT:${SERVER_PORT:9055}}
+    connection-timeout: 30000
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+
+# RestTemplate Timeouts
+timeout:
+    connection: 10000 
+    read: 30000        
+
+# Filtro de autenticação com prioridade menor que os enpoints de gerenciamento. 
+# No futuro, alterar o valor para -1 e proteger esses enpoints com autenticação basic.
+security.oauth2.resource.filter-order: 30
+
+# Login social apple
+apple:
+  clientId: br.net.univision.dev.cliente
+  keyId: 4Y733LLC6H
+  teamId: P29M7BQQGA
+  certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  pr:
+    clientId: br.net.univision.dev.clientePR
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  sp:
+    clientId: br.net.univision.dev.clienteSP
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  manaus:
+    clientId: br.net.univision.dev.clienteManaus
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  quer:
+    clientId: br.com.appquer.dev
+    keyId: QVA6W8UN48
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgxYNu+GCdW2ychUgHr79hX6JYme9bvMJLKAInCQXGfr6gCgYIKoZIzj0DAQehRANCAAQi+84gUGVGnTc2zoqEuuTpGvPG0Q2nb1yoFH98/M08XBiVYrp1RLU9MMoZqPCcAKfZIew2TTyguxkRK7Wa4Op+
+
+mongodb:
+    primary:
+        uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/?authSource=admin&authMechanism=SCRAM-SHA-1
+        database: ambiente-teste
+    secondary:
+        uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/?authSource=admin&authMechanism=SCRAM-SHA-1
+        database: appquer-dev
+
+swagger:
+    title: JWT
+    description: Microserviço das APIs de JWT
+
+## Facebook ## 
+facebook:
+    appId: 239657109785269
+    appSecret: f5bb10741c6f79e00bbd9a2758cb6d1b
+    quer:
+        appId: 344564096086526
+        appSecret: 9bb80c691f603532d5d2d9913e7ccbca
+
+## GOOGLE ##
+google:
+    appId: 544497855649
+    quer:    
+        appId: 752277448005
+   
+service:
+    beneficiarioIntegracaoService:
+        verificaPlanoCancelado:
+            threadSleep: 2
+    
+authentication: 
+    oauth:
+        clientidBeneficiario: umb
+        clientidCooperado: umb-cooperado
+        clientidWeb: umb-web
+        clientidIa: uvn-ia
+        clientidQuer: app_quer
+        clientidYuni: umb-yuni
+        
+cartao:
+    token:
+        # considera se geracao via totp nao estiver ativo
+        minutos_expiracao: 2
+        totp:
+            ativo: true
+            chave: secret
+            expiracaoSegundos: 1800
+            posicoes: 10
+        
+    # TODO retirar apos implantacao Cartao Virtual
+    cache:
+        # Tempo de Expiração do cartão em dias
+        expiracao: 1 
+    familia:
+        atualizar: false
+
+beneficiario:
+    integracao:
+        excluirInativo: false        

@@ -1,0 +1,71 @@
+server:
+    port: ${PORT:${SERVER_PORT:9002}}
+    
+swagger:
+    title: Beneficiário
+    description: Microserviço das APIs de Beneficiário
+
+notificacao:
+    utilizacao:
+        titulo: Notificação Uso do plano
+        texto: Caro beneficiário, informo que identificamos a utilização do plano de saúde
+
+url:
+    correios.cep: http://viacep.com.br/ws/
+    res:
+        tiket: https://api.unimed.coop.br/res/v1/termo/obter-ticket
+        termoConsetimento: https://beneficiario.unimed.coop.br/termo_consentimento?ticket=​
+
+res:
+    # UVNSSO-582 Token Cartão Virtual Portal Unimed Brasil
+    url:
+        consulta-token: https://api.unimed.coop.br/tokens/v1/consultatoken/{key}
+    bearer-token: Basic cG9ydGFsdW5pbWVkOnBvcnRhbDAwMQ==   
+
+
+cartao:
+    token:
+        # considera se geracao via totp nao estiver ativo
+        minutos_expiracao: 30
+        totp:
+            ativo: true
+            chave: secret
+            expiracaoSegundos: 1800
+            posicoes: 10
+            excecoes: ""
+    # TODO retirar apos implantacao Cartao Virtual
+    cache:
+        expiracao: 1
+
+field:
+    beneficiarioDto:
+        codigo: Código
+        cpf: CPF
+        estado: Estado
+        enderecos.telefone: Telefone
+        enderecos.celular: Celular
+
+spring:
+    datasource:
+        hikari:
+            maximum-pool-size: 150
+    cloud:           
+        gcp:
+            credentials:
+                location: classpath:service-account-prod.json
+            project-id: ucwbmobile-hom
+
+storage:
+    bucket: 
+        name: unimedmobile-hom
+        path: upload/protocolo-ouvidoria/
+    path:
+        service-account: service-account-prod.json
+    project-id: ucwbmobile-hom
+
+unimedBrasil:
+    geracaoToken:
+        urlAccesToken: https://gateway-hml.unimed.coop.br/oauth/v1/access-token
+        urlSolicitarToken: https://gateway-hml.unimed.coop.br/cartao-virtual/v1/tokens
+        clientId: d4f83eef-9634-443a-af9e-8a7edd9d37e9
+        clientSecret: 54000380-0d27-49df-afe8-62beb3e46d9d

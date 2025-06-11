@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      database: tcuida-hom
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+tcuida:
+  mail:
+    from: hom@appquer.com.br
+  storage.basePath: /opt/apps/storage/upload/tcuida

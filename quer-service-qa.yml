@@ -1,0 +1,14 @@
+firestore:
+    projectId: appquer-dev
+
+firebase:
+    url: https://appquer-dev.firebaseio.com
+    json:
+        path: /opt/apps/storage/microservices-jars/appquer-dev-firebase-adminsdk-wxrlz.json
+
+appquer.storage.basePath: /opt/apps/storage/upload/appquer
+
+spring:
+    data:
+        mongodb:
+            database: appquer-dev

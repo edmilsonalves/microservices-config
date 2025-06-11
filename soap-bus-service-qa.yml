@@ -1,0 +1,16 @@
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        
+com.sun.xml:
+    ws.transport.http:
+        client.HttpTransportPipe.dump: true
+        HttpAdapter.dump: true
+    internal.ws.transport:
+        client.HttpTransportPipe.dump: true
+        HttpAdapter.dump: true
+        HttpAdapter.dumpTreshold: 999999
+
+res:
+  mock:
+    ativo: true
