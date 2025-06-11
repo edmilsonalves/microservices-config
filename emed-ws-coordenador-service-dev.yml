@@ -1,4 +1,0 @@
-spring:
-  #Kafka properties
-  kafka:
-    bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-test-182416.internal:9092
