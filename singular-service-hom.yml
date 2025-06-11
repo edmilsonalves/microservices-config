@@ -1,0 +1,27 @@
+server:
+    port: ${PORT:${SERVER_PORT:9004}}
+      
+pubsub:
+  topics: projects/ucwbmobile-dev/topics
+  subscriptions: projects/ucwbmobile-dev/subscriptions
+  
+url:  
+  corretora: https://cduwebhom.azurewebsites.net/api/Account/TokenCadastro
+  umb:
+    corretora-unimed: 
+        token-cadastro: https://cduwebhom.azurewebsites.net/api/Account/TokenCadastro
+        login: https://cduwebhom.azurewebsites.net/login/token/
+
+positivacao:
+    limiteTentativas: 4
+    apiKey: AIzaSyBQAgHN09zaS2quuVMOI7FxONe3nsW_Zfo
+    apiHost: http://positivacao-cliente.private.univision.hom:8095
+    
+positivacaoBeneficiario:
+    limiteTentativas: 4
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: http://positivacao-cliente.private.univision.hom:8081
+  
+reconhecimentoFacial:
+    apiKey: AIzaSyCx0KLACD1jTfDm4T90S6s2E8_VwVC316s
+    apiHost: http://positivacao-cliente.private.univision.hom:8095

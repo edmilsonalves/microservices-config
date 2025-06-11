@@ -1,0 +1,27 @@
+﻿spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        
+res:
+    brasil:
+        acesso:
+            user: U058_EMED
+            pass: cGCWUt$Jge@.
+        quer:
+            acesso:
+                user: appquer
+                pass: G42i$ps2vV
+        servico:
+            inativacao:
+                profissional:
+                    abreviatura: univision
+                    cnpj: "29931216000152"
+                    cpf: ""
+    federacao:
+        acesso:
+            user: univision     # [fdpr] hml_unimed
+            pass: H@u45dDkV7e   # [fdpr] X25etG76A1kx43
+        quer:
+            acesso:
+                user: appquer     # [fdpr] hml_unimed
+                pass: G42i$ps2vV   # [fdpr] X25etG76A1kx43 

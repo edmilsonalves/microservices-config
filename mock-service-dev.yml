@@ -1,0 +1,87 @@
+server:
+    port: ${PORT:9666}
+    secondary:
+        ports: ${HTTP_PORTS:9667}
+
+app:
+    basic:
+        secretKey: unimed970
+        user: 0970fesp
+        userDll: integracaoBoleto
+        secretKeyDll: boletoIntegracao
+    oauth:
+        clientId: umb
+        clientSecret: umb-secret-key
+        loadBalance: true
+        tokenEndpoint: http://oauth-service/oauth/check_token
+info:
+    id: ${spring.application.name}
+
+mail:
+    filename: boleto.pdf
+    from:
+        email: mobile@unimedcuritiba.com.br
+        name: App Unimed - Segunda via de boleto
+    message: <html><body><b>Segunda Via de Boleto</b><br><br>Você solicitou a segunda via de boleto pelo aplicativo da Unimed e está recebendo em anexo.<br><br><br>Atenciosamente,<br>Unimed Mobile<br></body></html>
+    subject: Segunda Via de Boleto
+    
+path:
+    ptu: /opt/apps/ptu/
+
+url:
+    boleto:
+        link: https://gateway-test.appunimed.com:8443/beneficiario/api/v1/boletos/links-boletos
+    cartaInadimplencia:
+        link: https://gateway-test.appunimed.com:8443/beneficiario/api/v1/cartas-inadimplencia/lote
+    dss: https://appserviceshom.unimedcuritiba.com.br:9443/services
+    nofiticacao:
+        nova:
+            autorizacao: https://gateway-test.appunimed.com:8443/autorizacao/api/v1/autorizacoes/notificacoes
+    plataforma:
+        mobile: https://gateway-test.appunimed.com:8443/cartaovirtual/api/v1/cartoes
+        gateway: https://gateway-test.appunimed.com:8443/
+    ptu: https://gateway-test.appunimed.com:8443/guia-medico/app/v1/ptu/guia-medico
+    validar:
+        token: https://gateway-test.appunimed.com:8443/cartaovirtual/api/v1/check-token/{token}
+    alteracaoCadastral: http://scehom.unimedcuritiba.com.br:8080/DesbloqueioWS/service/mobile/api/v1/cartoes/alteracao-cadastral
+
+
+#Ribbon hystrix
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    strategy: THREAD
+                    thread:
+                        timeoutInMilliseconds: 100000
+                timeout.enabled: false
+    threadpool.default:
+        coreSize: 70
+        
+eureka:
+   client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+        healthcheck:
+            enabled: true
+   instance:
+        preferIpAddress: true
+
+
+msg:
+    autorizacao:
+        msgServicoProprio: Você pode realizar estes exames em uma unidade Unimed. 
+        msgPrepServicoProprio: Você pode realizar estes exames em uma unidade Unimed.
+        linkServicoProprio: https://www.unimedlab.com.br/exames/
+ 
+management:
+    security:
+        enabled: false
+    health:
+        defaults:
+           enabled: true
+        db:
+           enabled: true
+        mail:
+           enabled: false

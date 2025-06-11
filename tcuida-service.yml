@@ -1,0 +1,78 @@
+server:
+  port: ${PORT:${SERVER_PORT:9035}}
+
+swagger:
+  title: tCuida Services
+  description: Microserviço das APIs da Plataforma tCuida
+  contact:
+    name: Univision
+    url: ""
+    email: ""
+
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    date-format: yyyy-MM-dd'T'HH:mm:ssZ
+  data:
+    mongodb:
+      database: tcuida-dev
+
+facebook:
+  appId: 344564096086526
+  appSecret: 9bb80c691f603532d5d2d9913e7ccbca
+
+## GOOGLE ##
+google:
+  appId: 752277448005
+
+firestore:
+  projectId: appquer-dev
+
+firebase:
+  url: https://appquer-dev.firebaseio.com
+  json:
+    path: c:\dev\firebase\appquer-dev-firebase-adminsdk-wxrlz.json
+
+url:
+  res:
+    urlTiket: https://api-preproducao.portalunimed.com.br/res/v1/termo/obter-ticket
+    termoConsetimento: https://preprod-beneficiario.portalunimed.com.br/termo_consentimento?ticket=
+  app.deeplink: appquer://
+res:
+  profAbreviatura: univision
+  profCpf: 75777402925
+  textoCadastro: Autorizar acesso ao RES
+  textoAlteracao: Modificar acesso ao RES
+  botaoCadastro: Acesso ao RES
+  botaoAlteracao: Modificar acesso ao RES
+
+appquer:
+  mail:
+    from: dev@appquer.com.br
+  storage:
+    basePath: c:/dev/images/tcuida
+    userFolderMaxSizeBytes: 200000000
+tcuida:
+  mail:
+    from: dev@appquer.com.br
+  storage:
+    basePath: c:/dev/images/tcuida
+    userFolderMaxSizeBytes: 200000000
+
+url.quer.adm.web.home: https://tcuida-adm.appunimed.com/
+url.tcuida.adm.web.home: https://tcuida-adm.appunimed.com/
+
+## FIT BIT ##
+fitbit.api:
+  clientId: 22B9LY
+  clientSecret: f94fe8c958b52addcd22bc6ee44a617c
+  redirectUri: https://gateway.appunimed.com/quer/api/v1/fitbit/auth/callback
+
+# Login social apple
+apple:
+  quer:
+    clientId: br.com.appquer.dev
+    keyId: QVA6W8UN48
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgxYNu+GCdW2ychUgHr79hX6JYme9bvMJLKAInCQXGfr6gCgYIKoZIzj0DAQehRANCAAQi+84gUGVGnTc2zoqEuuTpGvPG0Q2nb1yoFH98/M08XBiVYrp1RLU9MMoZqPCcAKfZIew2TTyguxkRK7Wa4Op+

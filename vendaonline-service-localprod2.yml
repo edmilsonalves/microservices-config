@@ -1,0 +1,38 @@
+spring:
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: vendas-dev
+    datasource:
+        url: jdbc:mysql://localhost:3306/uvo_venda_online_prod2?useTimezone=true&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+dominio:
+    externo:
+        url:
+            venda: http://localhost:8443/venda
+            sgp-front: http://localhost:4201
+            venda-contratacao: http://localhost:4200
+            venda-adm: http://localhost:8087
+uvo:
+    ambiente: DEV
+    path:
+        vendaOnline: D:\venda-online-localprod
+        contrato-plano: D:\venda-online-localprod\planos\contratos
+        logo-plano: D:\venda-online-localprod\planos\logo
+        logo-empresa: D:\venda-online-localprod\empresas\logo
+        entidade-classe: D:\venda-online-localprod\entidade-classe
+        documentoComprobatorio: D:\venda-online-localprod\imagens\documentoComprobatorio
+        documentoComprobatorioArquivo: D:\venda-online-localprod\imagens\documentoComprobatorioArquivo
+        guia-usuario: D:\venda-online-localprod\documentos\guia-usuario
+        contrato: D:\venda-online-localprod\documentos\contrato
+        templates: D:\venda-online-localprod\templates
+        documentos-auxiliares: D:\venda-online-localprod\documentos\documentos-auxiliares
+        historico-crm: D:\venda-online-localprod\CRM\historicos
+        historico-crm-etapa: D:\venda-online-localprod\CRM\Etapas\historicos
+        regulamentos: D:\venda-online-localprod\empresas\%s\produtos\%s\regulamentos
+        cpt: D:\venda-online-localprod\empresas\%s\tipoVenda\%s\cpt

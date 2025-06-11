@@ -1,0 +1,8 @@
+tcuida.storage.basePath: /opt/apps/storage/upload/tcuida
+
+spring:
+  data:
+    mongodb:
+      database: tcuida-dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver

@@ -1,0 +1,47 @@
+server:
+    port: ${PORT:${SERVER_PORT:9010}}
+    
+spring:
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+    data:
+        mongodb:
+            database: guiamedico_db
+
+swagger:
+    title: Guia Médico
+    description: Microserviço das APIs de Guia Médico
+    
+url:
+    agenda:
+            medica: http://172.18.202.229:9765/services/0032/agenda_medica
+
+guiamedico:
+    download:
+        pathGuia: /opt/apps/storage/upload/guia-medico/
+        pathExcecoes: /opt/apps/storage/upload/guia-medico/excecoes
+        status:
+            timeoutSingular: 1000
+            timeoutTotal: 10000
+        qtdRegistros:  200
+    excecoes:
+        redirectPortal: 
+    timeout:
+        importacao:
+            arquivo: 30
+            complemento: 30
+            
+api:
+    geocode:
+        rapidapi:
+            host: wft-geo-db.p.rapidapi.com 
+            key:  bfde8d5707msh66aa8faed1cac80p158f1ejsnaafc3e0d5c52
+    bot-texto-ia:
+        url: http://34.70.38.122:8079//bot-guia-medico
+        user: uvn-chatbot-ia
+        key: uvn-chatbot-ia-secret-key
+
+        
+
+        

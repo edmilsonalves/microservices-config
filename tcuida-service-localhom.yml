@@ -1,0 +1,39 @@
+firestore:
+  projectId: appquer-hom
+
+firebase:
+  url: https://appquer-hom.firebaseio.com
+  json:
+    path: /opt/apps/storage/microservices-jars/appquer-hom-firebase-adminsdk-hs7us-2c95ee7eb6.json
+
+appquer:
+  mail:
+    from: hom@appquer.com.br
+  storage.basePath: /opt/apps/storage/upload/tcuida
+tcuida:
+  mail:
+    from: hom@appquer.com.br
+  storage.basePath: /opt/apps/storage/upload/tcuida
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:Un1m3dM0b!l3@104.198.166.118/?authSource=admin&authMechanism=SCRAM-SHA-1
+      database: tcuida-hom
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+url.quer.adm.web.home: https://tcuida-adm-hom.appunimed.com/
+url.tcuida.adm.web.home: https://tcuida-adm-hom.appunimed.com/
+
+## FIT BIT ##
+fitbit.api:
+  redirectUri: https://gateway-hom-lb.appunimed.com/quer/api/v1/fitbit/auth/callback
+
+# Login social apple
+apple:
+  quer:
+    clientId: br.com.appquer.hom
+    keyId: U929HVWFYC
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgyrYCNlBQwXd7A2p8T71OB4VPQZxisvg5oWUp0fJ3J2ugCgYIKoZIzj0DAQehRANCAATbmWcZ6nS8fuQU/1MbXE7JFJyXIgNrhqe7/rnC70/Lg5jshQI0X4XfQZPnn8nsXpMTqlm7Kky0BxJZyTXUCZcA

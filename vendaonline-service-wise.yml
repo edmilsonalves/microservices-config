@@ -1,0 +1,69 @@
+server:
+    port: ${PORT:${SERVER_PORT:9020}}
+    
+swagger:
+    title: Vendas Online
+    description: Microserviço das APIs de Vendas Online
+    version: "@project.version@"
+    termsOfServiceUrl: https://www.apache.org/licenses/LICENSE-2.0
+    contact:
+        name: Unimed Curitiba
+        url: ""
+        email: ""
+    license: Apache License 2.0  
+    licenseUrl: https://www.apache.org/licenses/LICENSE-2.0
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+
+spring:
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/uvo_venda_online?useTimezone=true&serverTimezone=UTC
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: devwise
+        password: devwise
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
+dominio:
+    externo:
+        url:
+            venda: https://gateway-test.appunimed.com:8443/venda
+            sgp-front: https://sgp-test.appunimed.com
+            venda-contratacao: https://vendas-test.appunimed.com
+            venda-adm: https://uvo-adm-test.appunimed.com
+uvo:
+    path:
+        vendaOnline: C:\DEV\venda-online
+        contrato-plano: C:\DEV\venda-online\planos\contratos
+        logo-plano: C:\DEV\venda-online\planos\logo
+        logo-empresa: C:\DEV\venda-online\empresas\logo
+        documentoComprobatorio: C:\DEV\venda-online\imagens\documentoComprobatorio
+        documentoComprobatorioArquivo: C:\DEV\venda-online\imagens\documentoComprobatorioArquivo
+        guia-usuario: C:\DEV\venda-online\documentos\guia-usuario
+        contrato: C:\DEV\venda-online\documentos\contrato
+        templates: C:\DEV\venda-online\templates
+        documentos-auxiliares: C:\DEV\venda-online\documentos\documentos-auxiliares
+        historico-crm: C:\DEV\venda-online\CRM\historicos
+        historico-crm-etapa: C:\DEV\venda-online\CRM\Etapas\historicos
+        regulamentos: C:\DEV\venda-online\empresas\%s\produtos\%s\regulamentos
+        cpt: C:\DEV\venda-online\empresas\%s\tipoVenda\%s\cpt
+    mail:
+        from: mobile-dev@appunimed.com
+    password:
+        regex: ^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S\w+$).{8,}$
+    url:
+        ans: http://www.ans.gov.br/planos-de-saude-e-operadoras/contratacao-e-troca-de-plano/guia-ans-de-planos-de-saude
+    config:
+        quantidadeDiasExportar: 180
+
+barramento:
+    url: https://gateway-test.appunimed.com:8443/barramento
+    singularUrl: https://gateway-test.appunimed.com:8443/singular
+    emailUrl: https://gateway-test.appunimed.com:8443/mail
+    acessoInterno: false
+    basic: Basic OTk5OWJhcnJhbWVudG86OTk5OWJhcnJhbWVudG8

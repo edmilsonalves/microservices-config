@@ -1,0 +1,184 @@
+spring:
+    cloud:
+        config:
+            allowOverride: true
+            overrideNone: false
+            overrideSystemProperties: false
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: test
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306,127.0.0.1:3307/umb_administrativo
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+        hikari:
+            minimum-idle: 5
+            maximum-pool-size: 30
+        tomcat:
+            initial-size: 5
+    kafka:
+        bootstrap-servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-dev.internal:9092
+
+ambiente: 
+    descricao: HOM
+    
+app.oauth:
+    clientId: umb
+    clientSecret: umb-secret-key
+    loadBalance: true
+    tokenEndpoint: http://oauth-service/oauth/check_token
+
+#autenticação /api    
+authentication: 
+    basic: true
+    
+eureka:
+    environment: hom
+    client:
+        serviceUrl:
+            defaultZone: http://vm-eureka-spring2.c.ucwbmobile-dev.internal:8080/eureka/
+        healthcheck:
+            enabled: true
+    instance:
+        lease-renewal-interval-in-seconds: 15
+        preferIpAddress: true
+    server:
+        renewalPercentThreshold: 0.1
+        enableSelfPreservation: false
+
+kafka:
+    bootstrap:
+        servers: PLAINTEXT://kafka-2-vm.c.ucwbmobile-dev.internal:9092
+        servers2: PLAINTEXT://kafka-2-vm.c.ucwbmobile-dev.internal:9092
+
+url: 
+    api: 
+        gateway: https://gateway-hom-lb.appunimed.com
+        esb: 
+            v2: https://gateway-hom-lb.appunimed.com/barramento/app/v1
+        noticia: https://gateway-hom-lb.appunimed.com/noticia
+    umb:
+        web:
+            rest: http://web-administrativo-vm.c.ucwbmobile-dev.internal:8080/umb-web/rest
+            home: https://adm-hom.appunimed.com
+umb:
+    path:
+        solicitacaoFoto: /opt/apps/storage/upload/solicitacao-foto
+        fotoNoticia: /opt/apps/storage/upload/noticia
+        fotoBanner: /opt/apps/storage/upload/banner
+        fotoFaq: /opt/apps/storage/upload/faq        
+        fotoBeneficio: /opt/apps/storage/upload/beneficio
+        backgroundApp: /opt/apps/storage/upload/background-app
+        faleAuditoria: /opt/apps/storage/upload/fale-auditoria
+        pendencias: /opt/apps/storage/upload/pendencias
+        anuncioCooperado: /opt/apps/storage/upload/anuncio-cooperado
+        cartaoVirtual: /opt/apps/storage/upload/cartao-virtual
+        protocoloOuvidoria: /opt/apps/storage/upload/protocolo-ouvidoria
+        fotoCampanhaInstitucional: /opt/apps/storage/upload/campanha-institucional
+        fotoClubeVantagem: /opt/apps/storage/upload/clube-vantagem
+        alteracaoCadastral: /opt/apps/storage/upload/alteracao-cadastral
+        fotoParametroProduto: /opt/apps/storage/upload/parametro-produto
+        solicitacaoReembolsoAnexo: /opt/apps/storage/upload/solicitacao-reembolso
+        ptuA1300: /opt/apps/storage/upload/ptu-a1300
+  
+logging:
+    level:
+        org.springframework:
+            security: INFO
+            data.mongodb.core: INFO
+
+
+logstash:
+    host: vm-elk-2.us-central1-f.c.ucwbmobile-dev.internal:5010
+
+spring.boot.admin:
+    turbine:
+        url: https://gateway-hom-lb.appunimed.com/hystrix/turbine.stream
+    notify.slack:
+        channel: cloud
+    username: 0032mobile  # These two are needed so that the client
+    password: secretKey   #can register at the protected server api
+    client:
+        metadata:
+            user.name: 0032mobile #These two are needed so that the server
+            user.password: secretKey #can access the proteceted client endpoints
+
+app.android:
+    versaoMinima: 1.2.8
+    versaoAtual: 1.2.21
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.hom.cliente
+app.ios:
+    versaoMinima: 1.2.8
+    versaoAtual: 1.2.21
+    linkDownload: https://itunes.apple.com/br/app/unimed-cliente-hom/id1469245353?l=pt&ls=1&mt=8
+app.cooperado.android:
+    versaoMinima: 1.1.25
+    versaoAtual: 1.1.31
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.hom.cooperado
+app.cooperado.ios:
+    versaoMinima: 1.1.25
+    versaoAtual: 1.1.31
+    linkDownload: https://itunes.apple.com/br/app/unimed-cooperado-hom/id1470412046?l=pt&ls=1&mt=8
+    
+firebase:
+    url: https://ucwbmobile-dev.firebaseio.com
+    json:
+        path: /opt/apps/storage/microservices-jars/ucwbmobile-dev-firebase-adminsdk.json
+
+# OneSignal
+onesignal:
+    ambiente: hom
+
+# TODO retirar apos implantacao Cartao Virtual
+beneficiario:
+    cache:
+        # Tempo de Expiração em dias
+        expiracao: 0
+
+expiracao:
+    cache:
+        beneficiario.minutos: 15
+        cartao.minutos: 15
+        cardapio.minutos: 5
+
+guiamedico:
+    pesquisaOnline:
+        maxDiasAtualizacao: 180
+        maxDiasAtualizacaoAlerta: 150
+
+pubsub:
+    topics: projects/ucwbmobile-dev/topics
+    subscriptions: projects/ucwbmobile-dev/subscriptions
+
+programaRelacionamento:
+                       clubeBeneficio:
+                                   urlApi: https://api.vantagens.club
+                                   clientId: 4e59f222-a07c-410e-a263-97bad3e3f2db
+                                   clientSecret: qocHcPeYTCqZKnVmWGCvkoMj12xX3tl3PpR5T2jl
+                                   granttype: client_credentials
+                                   scope: "*"
+                                   url: https://parana.clubeunimed.com.br/
+
+management:
+    endpoints:
+        web:
+            exposure.include: 'health,info,prometheus'
+            
+            
+protocolo:
+        integracao:
+                 gpu: 
+                    grantType: password
+                    userName: YxOlZFhqeK
+                    password: eWtmMCdrWogneBNfadQK
+                    cdTransasao: "021"
+                    cdTransasaoProtocolo: "001"
+                    tpCliente: PORTAL
+                    cdUniOrigem: "0500"
+                    cdUniDestino: "0049"
+                    nrTransacaoPrestadora: "001"
+                    idUsuario: SITE
+                    nrVersaoProtocolo: "002"
+                    cdUnimedIntegracao: "0168"        

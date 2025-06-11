@@ -1,0 +1,47 @@
+server:
+    port: ${PORT:${SERVER_PORT:9007}}
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+
+swagger:
+    title: Autorização
+    description: Microserviço das APIs de Autorização
+        
+url:
+    foto:
+        autorizacao: /app/v1/pendencias/foto?file=
+    ocr:
+        guias: http://ocr-liberacao-guias.private.univision.dev        
+    
+            
+umb:
+    path:
+        solicitacaoFoto: c:/dev/images/solicitacao-foto
+        pendencias: c:/dev/images/pendencias
+        guiaOcr: c:/dev/images/guia-ocr
+
+## MESSAGES
+field:
+    notificacaoAutorizacaoDto:
+        autorizacao: autorizacao
+        beneficiario: beneficiario
+        contrato: contrato
+        familia: familia        
+
+notificacao:
+    novaAutorizacao:
+        titulo: Nova Autorização
+        mensagem: Você possui uma nova autorização
+        pagina: AutorizacoesTabsPage
+        funcionalidade: AUTORIZACAO
+    cancelada:
+        titulo: Solicitação cancelada
+        mensagem: Uma solicitação de autorização foi cancelada, veja o motivo
+        pagina: ConsultaSolicitacoesPage
+        funcionalidade: SOLICITACAOFOTO
+
+autorizacoes:
+    resumo.qtdDias: 30
+    # UVNSSO-568 Prazo Máximo de Consulta das Autorizacoes na Integração
+    qtdDiasMaximo: 180

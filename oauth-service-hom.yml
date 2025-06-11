@@ -1,0 +1,32 @@
+
+
+authentication: 
+    oauth:
+        tokenValidityInSeconds: 600
+
+# Login social apple
+apple:
+  clientId: br.coop.unimed.cliente.hom
+  keyId: 78FV3MT4HV
+  teamId: 76QXR4SYHR
+  certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgyxxdF0MThCk+pW1jWhiu7h6Jit09A5KHnf0yMvF7ABWgCgYIKoZIzj0DAQehRANCAAR4GfFoopobsgpK725eOiZE/10lK5ng9+PloU7Zr/WJRZ3hWEpCHGaf4lU684VyK4oP/c0uGi02LpMiGLTk9dy3
+  pr:
+    clientId: br.net.univision.hom.clientePR
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  sp:
+    clientId: br.net.univision.hom.clienteSP
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  manaus:
+    clientId: br.net.univision.hom.clienteManaus
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v  
+  quer:
+    clientId: br.net.univision.hom.quer
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v

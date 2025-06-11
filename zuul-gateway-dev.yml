@@ -1,0 +1,40 @@
+server:
+  port: ${PORT:8443}
+
+zuul:
+  ignoredServices: "*"
+  sensitiveHeaders: Cookie,Set-Cookie
+  routes:
+    boleto:
+      path: /boleto/**
+      serviceId: beneficiario-service
+    manifestacao:
+      path: /manifestacao/**
+      serviceId: beneficiario-service
+    noticia:
+      path: /noticia/**
+      serviceId: singular-service
+    agenda:
+      path: /agenda/**
+      serviceId: agenda-web-service
+    cartaovirtual:
+      path: /cartaovirtual/**
+      serviceId: beneficiario-service
+    mock:
+      path: /mock/**
+      serviceId: mock-service
+    teleatendimento:
+      path: /teleatendimento/**
+      serviceId: teleatendimento-service
+    demonstrativo:
+      path: /demonstrativo/**
+      serviceId: cooperado-service
+    evento-cooperado:
+      path: /evento-cooperado/**
+      serviceId: cooperado-service
+    tcuida:
+      path: /tcuida/**
+      serviceId: tcuida-service
+    tcuida-scheduler:
+      path: /tcuida-scheduler/**
+      serviceId: tcuida-scheduler-service

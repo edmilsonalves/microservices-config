@@ -1,0 +1,26 @@
+server:
+    port: ${PORT:${SERVER_PORT:9018}}
+    
+swagger:
+    title: Agenda Web Service
+    description: Microserviço das APIs de Agenda Web
+
+spring:
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@10.142.0.70/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: guiamedico_db
+    datasource:
+        url: jdbc:mysql://localhost:3306,localhost:3307/umb_agenda
+        driver-class-name: com.mysql.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+
+umb:
+    path:
+        agenda: /opt/apps/storage/upload/agenda
+
+sga:
+    privateKey: /opt/apps/storage/infra/certs/private_treetools.key
+    carga:
+        importarEspecialidades: false

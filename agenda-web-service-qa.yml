@@ -1,0 +1,17 @@
+spring:
+    data:
+        mongodb:
+            database: guiamedico_db_qa
+            auto-index-creation: false
+    datasource:
+        url: jdbc:mysql://localhost:3306,localhost:3307/umb_agenda
+        driver-class-name: com.mysql.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+
+umb:
+    path:
+        agenda: /opt/apps/storage/upload/agenda
+
+sga:
+    privateKey: /opt/apps/storage/infra/certs/private_treetools.key

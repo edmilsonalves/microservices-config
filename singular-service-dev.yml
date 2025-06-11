@@ -1,0 +1,38 @@
+server:
+    port: ${PORT:${SERVER_PORT:9004}}
+
+swagger:
+    title: Singular
+    description: Microserviço das APIs de Singular
+
+field:
+    contatoDto:
+        emailResposta: E-mail para resposta
+        celularResposta: Celular
+        codigoCooperado: Código do cooperado
+        codigoSingular: Código da Unimed
+        assunto: Assunto
+        idMotivo: Motivo
+        mensagem: Mensagem
+
+umb:
+    path:
+        fotoNoticia: c:/dev/images/noticia
+        fotoBanner: c:/dev/images/banner
+        fotoFaq: c:/dev/images/faq        
+        faleAuditoria: c:/dev/images/fale-auditoria
+        fotoCampanhaInstitucional: c:/dev/images/campanha-institucional
+        fotoClubeVantagem: c:/dev/images/clube-vantagem
+        fotoParametroProduto: /opt/apps/storage/upload/parametro-produto
+
+url:
+    foto:
+        noticia: /app/v1/noticias/foto?file=
+        campanhaInstitucional: /app/v1/campanhas-institucionais/foto?file=
+        clubeVantagem: /app/v1/clube-vantagem/foto?file=
+    umb:
+        web:
+            home: http://localhost/umb-web
+        corretora-unimed: 
+            token-cadastro: https://cduwebhom.azurewebsites.net/api/Account/TokenCadastro
+            login: https://cduwebhom.azurewebsites.net/login/token/  

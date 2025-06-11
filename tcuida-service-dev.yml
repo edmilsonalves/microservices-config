@@ -1,0 +1,30 @@
+firestore:
+  projectId: appquer-dev
+
+firebase:
+  url: https://appquer-dev.firebaseio.com
+  json:
+    path: c:\dev\firebase\appquer-dev-firebase-adminsdk-wxrlz.json
+
+spring:
+  data:
+    mongodb:
+      database: tcuida-dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+
+## FIT BIT ##
+fitbit.api:
+  redirectUri: http://localhost:9032/api/v1/fitbit/auth/callback
+
+# Login social apple
+apple:
+  quer:
+    clientId: br.com.appquer.dev
+    keyId: QVA6W8UN48
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgxYNu+GCdW2ychUgHr79hX6JYme9bvMJLKAInCQXGfr6gCgYIKoZIzj0DAQehRANCAAQi+84gUGVGnTc2zoqEuuTpGvPG0Q2nb1yoFH98/M08XBiVYrp1RLU9MMoZqPCcAKfZIew2TTyguxkRK7Wa4Op+
+
+tcuida.websocket.jwt.hex_secret: a22079a10dd5cf2443aba19fc403dea780d284b5bed5a0f920b76ecf16bc04a9
+tcuida.websocket.jwt.expiration_time_millis: 900000
+tcuida.websocket.allowed_origin: https://tcuida-adm-test.appunimed.com

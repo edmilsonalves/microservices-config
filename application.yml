@@ -1,0 +1,414 @@
+info.id: ${spring.application.name}
+
+server:
+    port: ${PORT:${SERVER_PORT:0}}
+
+# No futuro, configurar seguraça para os endpoints de gerenciamento. (/metrics, /health)
+management:
+    endpoints:
+        web:
+            exposure.include: 'health,info,prometheus'
+    endpoint:
+        metrics.enabled: true
+        prometheus.enabled: true
+        refresh.enabled: true
+    metrics:
+        export:
+            prometheus.enabled: true
+    health:
+      show-details: ALWAYS
+    security.enabled: false
+
+spring:
+    cloud:
+        config:
+            allowOverride: true
+            overrideNone: false
+            overrideSystemProperties: false        
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3309/umb_administrativo
+        driver-class-name: com.mysql.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+        hikari:
+            minimum-idle: 1
+        tomcat:
+            initial-size: 1
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        openInView: false
+        show_sql: true
+        generate-ddl: false
+        hibernate:
+            ddl-auto: none
+            ##fix bug: leitura da propriedade "name" da anotação @column
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    http:
+        multipart:
+            max-file-size: 50MB
+            max-request-size: 50MB
+    servlet:
+        multipart:
+            max-file-size: 50MB
+            max-request-size: 50MB
+    zipkin:
+        baseUrl: https://adm-test.appunimed.com
+app.oauth:
+    clientId: umb
+    clientSecret: umb-secret-key
+    loadBalance: true
+    tokenEndpoint: http://oauth-service/oauth/check_token
+    jwtTokenEndpoint: http://jwt-service/oauth/check_token
+
+#autenticação /api    
+authentication: 
+    basic: true
+    
+#tentativas positivação beneficiário    
+positivacaoBeneficiario: 
+    limiteTentativas: 4    
+    
+#Ribbon
+ribbon:
+    ReadTimeout: 40000
+    ConnectTimeout: 5000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetriesNextServer: 1
+    MaxAutoRetries: 0
+    
+#Ribbon hystrix
+hystrix:
+    command:
+        default:
+            circuitBreaker:
+                enabled: false
+            execution:
+                isolation:
+                    strategy: THREAD
+                    thread:
+                        timeoutInMilliseconds: 90000
+                timeout.enabled: false
+    threadpool.default:
+        coreSize: 70
+
+# Netflix Eureka        
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8761/eureka/
+        healthcheck:
+            enabled: true
+    instance:
+        preferIpAddress: true
+
+# Spring Boot Admin
+spring.boot.admin:
+    discovery.ignored-services: config-server
+    period: 20000
+    connect-timeout: 5000
+    read-timeout: 20000
+    monitor:
+        period: 45000
+        status-lifetime: 45000
+        connect-timeout: 10000
+        read-timeout: 40000
+
+url:
+    clubeBeneficio: https://vivabem.clubeunimed.com.br
+    api: 
+        gateway: http://localhost:8443
+        esb:
+            v1: http://localhost:8280/api/v1
+            v2: http://localhost:8080/barramento/app/v1
+        clubeBeneficio:
+            v1: https://vivabem-api.redeparcerias.com/v1/
+    umb:
+        web:
+            rest: https://adm-test.appunimed.com/rest
+            home: https://adm-test.appunimed.com
+        psicologia-viva: 
+            oauth2: https://hml-kong-api.psicologiaviva.com.br/auth/v1/oauth2/token/user
+            integracao: https://hml-kong-api.psicologiaviva.com.br/paciente/v1/pacientes/integracao
+            link: https://hml-kong-api.psicologiaviva.com.br/auth/v1/oauth2/token/link       
+
+umb:
+    path:
+        solicitacaoFoto: /opt/apps/storage/upload/solicitacao-foto
+        fotoNoticia: /opt/apps/storage/upload/noticia
+        fotoBanner: /opt/apps/storage/upload/banner
+        fotoFaq: /opt/apps/storage/upload/faq        
+        fotoBeneficio: /opt/apps/storage/upload/beneficio
+        backgroundApp: /opt/apps/storage/upload/background-app
+        faleAuditoria: /opt/apps/storage/upload/fale-auditoria
+        pendencias: /opt/apps/storage/upload/pendencias
+        anuncioCooperado: /opt/apps/storage/upload/anuncio-cooperado
+        cartaoVirtual: /opt/apps/storage/upload/cartao-virtual
+        protocoloOuvidoria: /opt/apps/storage/upload/protocolo-ouvidoria
+        fotoCampanhaInstitucional: /opt/apps/storage/upload/campanha-institucional
+        fotoClubeVantagem: /opt/apps/storage/upload/clube-vantagem
+        alteracaoCadastral: /opt/apps/storage/upload/alteracao-cadastral
+        fotoChatbot: /opt/apps/storage/upload/config-chatbot
+        printCartaoVirtual: /opt/apps/storage/upload/cartao-virtual
+        solicitacaoReembolsoAnexo: /opt/apps/storage/upload/solicitacao-reembolso
+        ptuA1300: /opt/apps/storage/upload/ptu-a1300
+        base: /opt/apps/storage/upload
+        segunda-via-cartao-anexos: /opt/apps/storage/upload/segunda-via-cartao/anexos
+        solicitacao-autorizacao: /opt/apps/storage/upload/solicitacao-autorizacao
+
+sga:
+    path:
+        noticia: c:/dev/images/sga/noticias
+
+guiamedico:
+    pesquisaOnline:
+        maxDiasAtualizacao: 90
+        maxDiasAtualizacaoAlerta: 75
+        emailCopiaAlerta: suporte-tecnico@appunimed.com
+    download:
+        desactive: true
+        lastVersion: 103
+    nacional:
+        url: https://www.unimed.coop.br/site/web/guest/guia-medico/
+        urlSubstituicoes: http://www.unimed.coop.br/pct/rede-credenciada/
+
+zendesk.api:
+    endpoint:
+        tickets: https://appunimed.zendesk.com/api/v2/tickets.json
+        search: https://appunimed.zendesk.com/api/v2/search.json
+        users: https://appunimed.zendesk.com/api/v2/users
+        organizations: https://appunimed.zendesk.com/api/v2/organizations
+    oauth:
+        basic: emVuZGVza0BhcHB1bmltZWQuY29tL3Rva2VuOlZ0NXY5a2FySDhTQzJJdUxLVFJkamVTWVZsTWt3TFhFdks1azQxc0k=
+
+#The version of the service. It will refer to the version specified in pom.xml.
+swagger:
+    version: "6.0.0-RELEASE"
+    termsOfServiceUrl: 
+    contact:
+        name: Univision Tecnologia
+        url: "https://univision.net.br"
+        email: "suporte@univision.net.br"
+    license: (C) Todos os direitos reservados
+    licenseUrl: 
+    
+logging:
+    level:
+        org.springframework:
+            security: INFO
+            data.mongodb.core: INFO
+        zipkin.reporter: FATAL
+        ch.qos.logback.core.rolling: ERROR
+            
+    #file: logs/${spring.application.name}.log
+    
+disqueAns: 0800-701-9656
+
+textoSuporteGenerico: suporte@appunimed.com
+
+guiaMedicoNacional: https://www.unimed.coop.br/guia-medico
+
+google.maps.api.key: AIzaSyDhwU_d9reORjD8k1gj3gbHFtRgE054NL4
+
+app.android:
+    versaoMinima: 1.1.49
+    versaoAtual: 1.1.74
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.cliente
+    
+app.ios:
+    versaoMinima: 1.1.49
+    versaoAtual: 1.1.74
+    linkDownload: https://itunes.apple.com/us/app/unimed-cliente-pr/id1198527640?l=pt&ls=1&mt=8
+
+app.cooperado.android:
+    versaoMinima: 1.1.15
+    versaoAtual: 1.1.22
+    linkDownload: https://play.google.com/store/apps/details?id=br.com.unimed.pr.cooperado
+
+app.cooperado.ios:
+    versaoMinima: 1.1.15
+    versaoAtual: 1.1.22
+    linkDownload: https://itunes.apple.com/us/app/unimed-cooperado-pr/id1198529512?l=pt&ls=1&mt=8
+
+
+firebase:
+    url: https://ucwbmobile-dev.firebaseio.com
+    json:
+        path: c:\dev\firebase\ucwbmobile-dev-firebase-adminsdk-cx6hi-65cbb1012a.json
+
+firestore:
+    projectId: ucwbmobile-dev
+
+# OneSignal
+onesignal:
+    ambiente: dev
+
+error:
+    msg:
+        GEN-1: Parâmetros inválidos.
+        GEN-2: O campo {0} é obrigatório.
+        GEN-3: Erro ao salvar informações!
+        GEN-4: O campo {0} não pode ser nulo.
+        GEN-5: O campo {0} não é uma data válida ({1}).
+        GEN-6: Dados da requisição inválidos!
+        GEN-7: CPF inválido!
+        GEN-8: Ocorreu um erro de comunicação em nossos serviços.
+        GEN-9: Ocorreu um erro desconhecido.
+        BEN-1: Beneficiário não encontrado para o cartão {0}.
+        BEN-2: Nenhum beneficiário encontrado para a Unimed {0}.
+        BEN-3: Autorização/Evento não encontrada.
+        BEN-4: Evento já foi avaliado.
+        BEN-5: Singular não encontrada.
+        BEN-6: Evento não encontrado.
+        BEN-7: Não foi possível atualizar o seu cadastro, entre em contato com a Unimed.
+        BEN-8: Evento já avaliado.
+        BEN-9: Consulta de imposto de renda para um cartão que não corresponde a família do usuário.
+        BEN-10: Não foi possível realizar a consulta do Imposto de Renda.
+        BEN-11: O cartão informado não pertence ao beneficiário.
+        BEN-12: Você já está cadastrado no clube de benefício, favor realizar o login.
+        BEN-13: Usuário ou senha inválidos.
+        BOL-1: Beneficiário não encontrado.
+        BOL-2: Beneficiário não aderiu à opção de boleto eletrônico.
+        BOL-3: Deve ser informado o campo 'email', 'celular' ou 'via aplicativo'.
+        BOL-4: O campo {0} ({1}) está retornando formato de data inválido.
+        BOL-5: Boleto indisponível.
+        BOL-6: Erro ao cancelar a adesão no boleto eletrônico.
+        BOL-7: Erro ao aderir boleto eletrônico.
+        BUS-1: O formato do campo competência é inválido.
+        BUS-2: Endpoint não encontrado para o serviço {0} da singular {1}.
+        BUS-3: Erro ao executar POST para endpoint {0}.
+        COP-1: Singular não encontrada
+        COP-2: Cooperado não encontrado
+        COP-3: Chat não encontrado
+        COP-4: Funcionalidade não está ativa no cardápio.
+        COP-5: Erro ao compartilhar.
+        COP-6: Erro ao carregar as configurações para compartilhamento por e-mail.
+        COP-7: Dados do anuncio cooperado não encontrados.
+        COP-8: Realizar upload somente de imagem.
+        COP-9: Erro ao realizar o upload da imagem.
+        DEM-1: O formato do campo competência é inválido.
+        DEM-2: Nenhum demonstrativo encontrado.
+        AUT-1: O número do cartão do usuário é obrigatório.
+        AUT-2: O número do cartão é obrigatório.
+        AUT-3: Não foi encontrado a autorização com o número {0}.
+        AUT-4: Não foi possível solicitar a liberação, entre em contato com a Unimed.
+        AUT-5: Favor realizar o upload somente de imagem.
+        AUT-6: Não é possível ativar notificação de autorizações em situações não pendentes.
+        AUT-7: Funcionalidade não está ativa no cardápio.
+        AUT-8: Favor realizar o upload somente de imagem.
+        AUT-9: Autorização não localizada.
+        AUT-10: Imagens já enviadas para pendência.
+        CVT-1: Erro ao enviar notificação.
+        CVT-2: Não foi possível gerar o token para cartão, entre em contato com a Unimed.
+        CVT-3: Cartão não encontrado.
+        CVT-4: Número de token inválido, favor confirmar com o beneficiário novo número.
+        CVT-5: Número do {0} inválido.
+        GMD-1: Os campos {0} e {1} são obrigatórios. 
+        GMD-2: Nenhuma atualização disponível para a versão informada.
+        GMD-3: Nenhuma informação disponível para o guia médico.
+        GMD_4: Erro ao salvar favorito
+        GMD_5: Erro ao listar favoritos
+        GMD_6: O código da singular não pode ser vazio.
+        SEG-1: Usuário ou senha inválidos
+        SEG-2: Usuário não ativado
+        SEG-3: Autenticação falhou
+        SEG-4: A senha é obrigatória e deve conter pelo menos 6 caracteres!
+        SEG-5: Já existe um usuário registrado com esse e-mail!
+        SEG-6: O {0} já está registrado!
+        SEG-7: Sua Unimed não é atendida por este aplicativo.
+        SEG-8: Beneficiário não encontrado!
+        SEG-9: Usuário não encontrado!
+        SEG-10: Data de validade incorreta ou cartão vencido!
+        SEG-11: Esse número de cartão já foi registrado!
+        SEG-12: Dados do {0} não conferem!
+        SEG-13: Não foi possível validar os dados do {0} no momento!
+        SEG-14: Número do cartão inválido!
+        SEG-15: Singular não disponível para o aplicativo mobile!
+        SEG-16: CPF inválido!
+        SEG-17: Não foi possível verificar a versão do aplicativo. Verifique os parâmetros informados.
+        SEG-18: As senhas digitadas não conferem
+        SEG-19: Cooperado não encontrado!
+        SEG-20: Essa conta da rede social já está em uso por outro usuário!
+        SEG-21: Você já tem uma conta do {0} registrada!
+        SEG-22: Usuário excluído!
+        SEG-23: O beneficiário informado não possui CPF, entre em contato com a sua Unimed para atualizar seus dados.
+        SEG-24: No momento não é possível realizar o registro porque seu contrato inicia em {0}. Por favor realize o cadastro a partir desta data.
+        SEG-25: O plano do beneficiário informado foi cancelado.
+        SEG_29: Sua Unimed não é atendida por este aplicativo.
+        SIN-1: Singular não localizada para o {0}({1}).
+        SIN-2: Campo 'público' inválido ou não informado.
+        SIN-3: Motivo contato não localizado.
+        SIN-4: Cooperado não localizado.
+        SIN-5: Usuário não encontrado.
+        SIN-6: Ocorreu um erro no envio do email de Fale com a Diretoria.
+        SIN-7: Ocorreu um erro no envio do email de Contato.
+    constraint:
+        NotNull: O campo {0} é obrigatório.
+        Size: O campo {0} deve ter entre {1} e {2} caracteres.
+        Pattern: O campo {0} deve estar no formato {1}.
+
+expiracao:
+    cache:
+        beneficiario.minutos: 15
+        cartao.minutos: 15
+        cardapio.minutos: 180
+    recuperacaoSenha:
+        beneficiario.dias: 7
+        cooperado.dias: 7
+        usuario.dias: 7
+    validacaoEmail:
+        usuario.dias: 2
+    # TODO excluir apos implantacao 57975
+    chatbot:
+        sessao.minutos: 5
+        # transbordo 0 = nao expirar
+        sessao.transbordo.minutos: 0
+        expurgo.mensagens.horas: 720         
+
+res:
+    profAbreviatura: univision
+    profCpf: "75777402925"
+    profCnpj: "29931216000152"
+    profLogin: barramento.fed.pr
+    profissional:
+        abreviatura: univision
+        cpf: "75777402925"
+        cnpj: "29931216000152"
+        login: barramento.fed.pr
+    url:
+        ticket: https://api-preproducao.portalunimed.com.br/res/v1/termo/obter-ticket
+        termoConsentimento: https://preprod-beneficiario.portalunimed.com.br/termo_consentimento?ticket=
+        servico: https://reshml.unimed.coop.br/chs-integration-external-services-ptu-demographic/proxy-services
+        servicoFdpr: https://reshomologa.unimedpr.coop.br:8243/services
+    client:
+        id: client-federacao-parana
+        secret: aWeg345Asde
+
+pubsub:
+    topics: projects/ucwbmobile-test-182416/topics
+    subscriptions: projects/ucwbmobile-test-182416/subscriptions
+
+programaRelacionamento:
+                       clubeBeneficio:
+                                   urlApi: https://api.vantagens.club
+                                   clientId: 4e59f222-a07c-410e-a263-97bad3e3f2db
+                                   clientSecret: qocHcPeYTCqZKnVmWGCvkoMj12xX3tl3PpR5T2jl
+                                   granttype: client_credentials
+                                   scope: "*"
+                                   url: https://parana.clubeunimed.com.br/
+
+protocolo:
+        integracao:
+                 gpu: 
+                    grantType: password
+                    userName: YxOlZFhqeK
+                    password: eWtmMCdrWogneBNfadQK
+                    cdTransasao: "021"
+                    cdTransasaoProtocolo: "001"
+                    tpCliente: PORTAL
+                    cdUniOrigem: "0500"
+                    cdUniDestino: "0049"
+                    nrTransacaoPrestadora: "001"
+                    idUsuario: SITE
+                    nrVersaoProtocolo: "002"
+                    cdUnimedIntegracao: "0168"                   

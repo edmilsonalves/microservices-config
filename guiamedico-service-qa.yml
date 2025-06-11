@@ -1,0 +1,5 @@
+spring:
+    data:
+        mongodb:
+            database: guiamedico_db
+            auto-index-creation: false

@@ -1,0 +1,10 @@
+spring:
+    data:
+        mongodb:
+            uri: mongodb://root:Un1m3dM0b!l3@10.142.0.70/?authSource=admin&authMechanism=SCRAM-SHA-1
+            database: guiamedico_db
+
+guiamedico:
+    excecoes:
+        redirectPortal: 0975-3550308,0975-5300108,0975-2900702,0975-2905701,0975-2906501,0975-2919207,0975-2927408,0975-3112000,0975-2513851,0975-3505708,0975-3547809
+             

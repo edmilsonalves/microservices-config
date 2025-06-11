@@ -1,0 +1,29 @@
+﻿server:
+    port: 9030
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+swagger:
+    title: Barramento
+    description: Microserviço das APIs de Barramento
+
+retry:
+    limit: 1
+    delay: 2000
+uvo:
+    crm:
+        ativo: true
+        token: Basic ZWNvbW1lcmNlOiEyMGp4dEoz
+    proposta:
+        ativo: true
+        token: Basic ZWNvbW1lcmNlOiEyMGp4dEoz
+    reserva:
+        ativo: true
+        token: Basic ZWNvbW1lcmNlOiEyMGp4dEoz
+    curitiba:
+        ativo: true
+        token: Basic Z19hdG9zd3M6VW5pbWVkOTk=
+        
+timeout:
+    connection: 10000 
+    read: 30000

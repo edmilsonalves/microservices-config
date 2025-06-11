@@ -1,0 +1,35 @@
+server:
+    port: ${PORT:${SERVER_PORT:9080}}
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+        
+spring:
+    kafka:
+        consumer:
+            group-id: chatbot
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+            retries: 3
+
+swagger:
+    title: Chatbot
+    description: Chatbot Websocket
+
+config:
+   maxTextMessageBufferBytes: 2097152   # 2MB
+
+management:
+    endpoints:
+        web:
+            exposure.include: metrics,prometheus,health,info,env,error,status
+    endpoint:
+        metrics.enabled: true
+        prometheus.enabled: true
+    metrics:
+        export:
+            prometheus.enabled: true

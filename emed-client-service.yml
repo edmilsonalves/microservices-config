@@ -1,0 +1,29 @@
+server:
+    port: ${PORT:${SERVER_PORT:8099}}
+    
+security:
+    hash:
+        usuario: defaultUser
+        senha: defaultPassword
+        chave: defaultKey
+
+
+spring:
+    data:
+        mongodb:
+            database: guiamedico_db_test
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+
+amplimed:
+    url: https://apiapp.amplimed.com.br
+    auth:
+        usuario: univision
+        senha: univision@Amplimed-2020!
+        
+pep:
+    url: https://trn-agenda.pepunimed.com.br/Agenda
+    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6ImFnZW5kYS5jYXNjYXZlbCIsInBhc3N3b3JkIjoiQGZkamZqZHMhIiwib3JpZ2VtIjoiQWdlbmRhIiwiQ29udklkIjoiOTQ5NzIzOCJ9.4jsuKEEcD84aFBjs4Ed_TeQGT7NER4f0CrZfs3_B6j0       
+
+
+            

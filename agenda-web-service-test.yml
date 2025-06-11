@@ -1,0 +1,13 @@
+spring:
+    data:
+        mongodb:
+            database: guiamedico_db_test
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/umb_agenda
+
+umb:
+    path:
+        agenda: /opt/apps/storage/upload/agenda
+
+sga:
+    privateKey: /opt/apps/storage/infra/certs/private_treetools.key

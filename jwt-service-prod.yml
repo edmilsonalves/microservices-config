@@ -1,0 +1,29 @@
+﻿server:
+    port: ${PORT:${SERVER_PORT:9055}}
+    connection-timeout: 30000
+
+mongodb:
+    primary:
+        uri: mongodb://root:Un1m3dM0b!l3@10.128.0.3/?authSource=admin&authMechanism=SCRAM-SHA-1
+        database: test
+    secondary:
+        uri: mongodb://root:Un1m3dM0b!l3@10.128.0.3/?authSource=admin&authMechanism=SCRAM-SHA-1
+        database: appquer-prod
+
+# Login social apple
+apple:
+  pr:
+    clientId: br.com.unimed.pr.cliente
+    keyId: 7U4QGCJAZN
+    teamId: G658AK4Y32
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQglcjwSCHqMtGrYiq0EdZUu9vK+ZaaMv0j4u6LUisMFCWgCgYIKoZIzj0DAQehRANCAATSu+LhWpB5QFh5rlWcPhTfzGjxUGDlfia4Ua2zJfACJDcGjSwJ1fVExNSuPyZ6cgBSoJYMZXoXgjQ2ZfNRdnu+
+  sp:
+    clientId: br.com.unimed.fesp.cliente
+    keyId: D37QA9FKJQ
+    teamId: PVVDDKH3ZM
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgtKTR7SdJ/DjvPeP9h5O7CEknN/aaMFfM5ZzAelps4EKgCgYIKoZIzj0DAQehRANCAATcKqI+qYzegXg0Kk6xOEIZwqqzVnazBeYq7N1OQfcHfVYtQsd4pEWxai3BxmJ3rUaLwj6FRc5AJ8RmUHv4Hp6M
+  manaus:
+    clientId: br.com.unimed.manaus.cliente
+    keyId: AD6ZV87AV6
+    teamId: 2CGS25JW7K
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgXFwzxxtc+aq7I2g0xe8XSlJUNUqmvCEHZcnuyx/M7KWgCgYIKoZIzj0DAQehRANCAAQ/Cyoz8vBkG1C8N3yKO+GDPT+DsazAS+Yiql2q36VP5zpG79yBI9Ry0tNZYmET/V/8KQxKW6ejlpZAoAV3yxPn

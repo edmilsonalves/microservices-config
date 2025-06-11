@@ -1,0 +1,18 @@
+﻿api:
+    node:
+        endpoint: http://cartaovirtual-dev.private.univision.dev
+
+parametro:
+    default:
+        tempo:
+            # TODO excluir abaixo 'terapias' apos implantacao 99992 (fase 2) pois foi migrado p/ singular
+            terapias:
+                janelaAgendaSegundos: 0                 # considerar apenas agendamentos dentro da janela (0 = nao validar) 
+                timeout:
+                    confirmacaoMsgAtivaMinutos: 10      # encerrar sessao de chat com pacientes que nao confirmaram consulta
+                    confirmacaoChatMinutos: 5           # encerrar sessao de chat com pacientes que responderam msg ativa
+            timeout:
+                sessao:
+                    templateMinutos: 10                # apos envio de mensagem ativa p/ whatsapp (template message) 
+                    chatMinutos: 5                     # durante troca de mensagem via whatsap (session message)
+                    

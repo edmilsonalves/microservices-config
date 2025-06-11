@@ -1,0 +1,16 @@
+server:
+    port: ${PORT:${SERVER_PORT:8099}}
+    
+security:
+    hash:
+        usuario: defaultUser
+        senha: defaultPassword
+        chave: defaultKey
+
+
+spring:
+    data:
+        mongodb:
+            database: guiamedico_db_qa
+            
+            

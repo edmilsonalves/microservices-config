@@ -1,0 +1,18 @@
+scheduler:
+    push:
+        noticia: true
+        evento: true
+        agenda: false
+        atualizarEstatisticasNoticias: true
+        atualizaCategorias: true
+        appquer:
+            agenda: true
+            questionarioNaoRespondido: true
+            perfilSaudeIncompleto: true
+            atualizarPerfilSaude: true
+    ptu:
+        verificaAtualizacao: false
+    chat:
+        terapias:
+            consultaAgendas: true
+            notificacao: true

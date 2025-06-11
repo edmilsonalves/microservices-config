@@ -1,0 +1,139 @@
+server:
+    port: ${PORT:8443}
+    undertow:
+        ioThreads: 15
+        workerThreads: 300
+
+#propriedade para remover // das urls no zuul para evitar o erro contained a potentially malicious String "//"
+urlrewrite: true
+
+zuul:
+    ignoredServices: '*'
+    sensitiveHeaders: Cookie,Set-Cookie
+    routes:
+        autorizacao:
+            path: /autorizacao/**
+            serviceId: autorizacao-service
+        boleto:
+            path: /boleto/**
+            serviceId: beneficiario-service
+        cartaovirtual:
+            path: /cartaovirtual/**
+            serviceId: beneficiario-service
+        config-server:
+            path: /config-server/**
+            serviceId: config-server
+        cooperado:
+            path: /cooperado/**
+            serviceId: cooperado-service
+        evento-cooperado:
+            path: /evento-cooperado/**
+            serviceId: cooperado-service
+        guia-medico:
+            path: /guia-medico/**
+            serviceId: guiamedico-service
+        mail:
+            path: /mail/**
+            serviceId: mail-service
+        manifestacao:
+            path: /manifestacao/**
+            serviceId: beneficiario-service
+        noticia:
+            path: /noticia/**
+            serviceId: singular-service
+        notificacao-push:
+            path: /notificacao-push/**
+            serviceId: notificacao-push-service
+        seguranca:
+            path: /seguranca/**
+            serviceId: oauth-service
+        singular:
+            path: /singular/**
+            serviceId: singular-service
+        beneficiario:
+            path: /beneficiario/**
+            serviceId: beneficiario-service
+        demonstrativo:
+            path: /demonstrativo/**
+            serviceId: cooperado-service
+        barramento:
+            path: /barramento/**
+            serviceId: bus-service
+        barramentoSoap:
+            path: /barramento-soap/**
+            serviceId: soap-bus-service
+        chat:
+            path: /chat/**
+            serviceId: chat-service
+        spring-admin:
+            path: /spring-admin/**
+            serviceId: spring-admin
+        agenda:
+            path: /agenda/**
+            serviceId: agenda-web-service
+        agenda-web:
+            path: /sga/**
+            serviceId: agenda-web-service
+        venda-online:
+            path: /venda/**
+            serviceId: vendaonline-service
+        mock:
+            path: /mock/**
+            serviceId: mock-service
+        mock-brasil:
+            path: /mock-brasil/**
+            serviceId: mock-brasil-service            
+        quer:
+            path: /quer/**
+            serviceId: quer-service
+# Scheduler (Path com hash proposital para monitoração externa)
+        scheduler:
+            path: /499f31e79c00c9e8f61bdaadc5e82f45/**
+            serviceId: scheduler-service
+        teleatendimento:
+            path: /teleatendimento/**
+            serviceId: teleatendimento-service
+        jwt:
+            path: /jwt/**
+            serviceId: jwt-service
+        tcuida:
+            path: /tcuida/**
+            serviceId: tcuida-service
+        tcuida-scheduler:
+            path: /tcuida-scheduler/**
+            serviceId: tcuida-scheduler-service
+        analytics:
+            path: /analytics/**
+            serviceId: analytics-service
+        res:
+            path: /res/**
+            serviceId: cspar-service
+        positivacao:
+            path: /positivacao/**
+            serviceId: positivacao-service             
+
+#Ribbon
+ribbon:
+    ReadTimeout: 40000
+    ConnectTimeout: 5000
+    OkToRetryOnAllOperations: true
+    MaxAutoRetriesNextServer: 0
+    MaxAutoRetries: 0
+
+chat-service:
+    ribbon:   
+        ReadTimeout: 90000
+        ConnectTimeout: 10000
+    hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 200000
+
+singular-service:
+    ribbon:   
+        ReadTimeout: 90000
+        ConnectTimeout: 10000
+    hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 200000
+
+tcuida-service:
+    ribbon:   
+        ReadTimeout: 90000
+        ConnectTimeout: 10000
+    hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 200000

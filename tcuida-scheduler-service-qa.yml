@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      database: tcuida-qa
+
+tcuida.storage.basePath: /opt/apps/storage/upload/tcuida

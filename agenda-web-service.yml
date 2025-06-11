@@ -1,0 +1,31 @@
+server:
+    port: ${PORT:${SERVER_PORT:9018}}
+    
+swagger:
+    title: Agenda Web Service
+    description: Microserviço das APIs de Agenda Web
+
+spring:
+    datasource:
+        url: jdbc:mysql://localhost:3307/umb_agenda_new
+        driver-class-name: com.mysql.jdbc.Driver
+        username: unimedmobile
+        password: unimedmobile
+
+ribbon:
+    ReadTimeout: 300000
+        
+umb:
+    path:
+        agenda: c:/dev/images/agenda
+
+sga:
+    privateKey: D:\DEV\umb-agenda-web\unimedSGA\src\main\resources\unimed\sga\controller\private_treetools.key
+    convites:
+        hrsPrazoMinExpiracao: 24
+        hrsPreviaCancelamento: 0
+    carga:
+        importarEspecialidades: true
+
+url:
+    correios.cep: http://viacep.com.br/ws/

@@ -1,0 +1,61 @@
+server:
+    port: ${PORT:${SERVER_PORT:9011}}
+    undertow: 
+        ioThreads: 15
+        workerThreads: 300
+
+spring:
+    kafka:
+        name: notificacao-push-service
+        consumer:
+            group-id: push-notification
+            auto-offset-reset: earliest
+            key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+            value-deserializer: br.com.unimed.mobile.push.kafka.NotificationJsonSerializer
+            properties:
+                request.timeout.ms: 300000
+                heartbeat.interval.ms: 1000
+                max.poll.interval.ms: 900000
+                max.poll.records: 100
+                session.timeout.ms: 600000
+                auto.commit.interval.ms: 20000
+                rebalance.timeout.ms: 300000
+                retry.backoff.ms: 5000
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+            value-serializer: br.com.unimed.mobile.push.kafka.NotificationJsonSerializer
+            retries: 2
+
+firebase:
+    projeto: ucwbmobile-test-182416
+    fila: scheduled-notification
+    location: us-central1
+    
+# OneSignal
+onesignal:
+    beneficiario:
+        appId: 2192eaf5-299b-4987-97cf-e91cb3f96d55
+        authorization: NjBiZThmNzQtYTQ2My00NWY1LWE3NmItNDU1YjNhYjU1NzVi
+    superapp:
+        appId: 6764500e-87cf-447b-a53c-be1f8e3839d9
+        key: gnonyp4touen4rwich7qsqtor       
+        restkey: os_v2_app_m5sfaduhz5chxjj4xypy4obz3hgnonyp4touen4rwich7qsqtorvholetzwr2rgswud52ppzlall64gqrqsg5bcm5etsjkiae25lvaq           
+    cooperado:
+        appId: 1a4cca80-fe4d-4ed9-b0fe-52fe8512f304
+        authorization: NjczMDhhN2MtMGE1Zi00MTZmLWJjNWQtYTJiZDg1ZmVmN2Rh
+    saude:
+        appId: 806daa10-0b49-4910-9fd7-9f1ac905be65
+        authorization: NWU1M2E5YTktMTdiNi00YzM4LTkzMDYtMzMzN2VkYWMxNTI4
+    quer:
+        appId: 0313390d-72d8-4eb2-8e9d-b7fc3e3713f8
+        authorization: YzE4MWMzMDUtNWJmYS00NWU4LWIzOTItOWI2ZDEyYzJhYjY1
+    querRN:
+        appId: 9bc70bfb-4331-4032-b7b6-da0458c438f0
+        authorization: MGRhN2Q4NDQtODcwYy00M2QwLWFmMmItNzgzNzMwODRiNDgx
+
+swagger:
+    title: Notificação Push
+    description: Microserviço das APIs de Notificação Push
+
+url:
+    onesignal.v1: https://onesignal.com/api/v1/

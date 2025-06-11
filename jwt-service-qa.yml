@@ -1,0 +1,38 @@
+﻿server:
+  port: ${PORT:${SERVER_PORT:9055}}
+  connection-timeout: 30000
+
+mongodb:
+  primary:
+    uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+    database: test_qa
+  secondary:
+    uri: mongodb://root:Un1m3dM0b!l3@10.128.0.2/?authSource=admin&authMechanism=SCRAM-SHA-1
+    database: appquer-dev
+
+# Login social apple
+apple:
+  clientId: br.coop.unimed.cliente.qa
+  keyId: A8SD897CU4
+  teamId: 76QXR4SYHR
+  certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg5tkXfFMwwEnsG8x2CJRA7zBLIG0t7eC3hvQ8w2neJXagCgYIKoZIzj0DAQehRANCAAS08Z7+g4M0b76Ak+S5D4sSSOAWs7EoNs0dKs2/Yrml781ekXAmfslLgNZJGYIonPkqSgJmpw0c8HRHhY0+NY0S
+  pr:
+    clientId: br.net.univision.qa.clientePR
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  sp:
+    clientId: br.net.univision.qa.clienteSP
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v
+  manaus:
+    clientId: br.net.univision.qa.clienteManaus
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v  
+  quer:
+    clientId: br.net.univision.qa.quer
+    keyId: 4Y733LLC6H
+    teamId: P29M7BQQGA
+    certificate: MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgE5BzYDj7pUvervZBUnSnA8ySrnLpA9XBXvAnIQA+8OOgCgYIKoZIzj0DAQehRANCAAR1lU4bd80Lf53d0Cqqla65C75OGyip+fyJ62gwPXp4pSt/Jwhbj301rkUDHaIf3sCQqrX+RQCPQXZhwrdsWx0v

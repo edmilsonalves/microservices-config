@@ -1,0 +1,31 @@
+# OneSignal
+spring:
+    kafka:
+        name: notificacao-push-service
+        consumer:
+            properties:
+                request.timeout.ms: 30000
+                heartbeat.interval.ms: 1000
+                max.poll.interval.ms: 90000
+                max.poll.records: 100
+                session.timeout.ms: 60000
+                auto.commit.interval.ms: 2000
+                rebalance.timeout.ms: 30000
+                retry.backoff.ms: 5000
+
+onesignal:
+  beneficiario:
+    appId: 2192eaf5-299b-4987-97cf-e91cb3f96d55
+    authorization: NjBiZThmNzQtYTQ2My00NWY1LWE3NmItNDU1YjNhYjU1NzVi
+  cooperado:
+    appId: 1a4cca80-fe4d-4ed9-b0fe-52fe8512f304
+    authorization: NjczMDhhN2MtMGE1Zi00MTZmLWJjNWQtYTJiZDg1ZmVmN2Rh
+  saude:
+    appId: 806daa10-0b49-4910-9fd7-9f1ac905be65
+    authorization: NWU1M2E5YTktMTdiNi00YzM4LTkzMDYtMzMzN2VkYWMxNTI4
+  quer:
+    appId: 0313390d-72d8-4eb2-8e9d-b7fc3e3713f8
+    authorization: YzE4MWMzMDUtNWJmYS00NWU4LWIzOTItOWI2ZDEyYzJhYjY1
+  querRN:
+    appId: 0313390d-72d8-4eb2-8e9d-b7fc3e3713f8
+    authorization: YzE4MWMzMDUtNWJmYS00NWU4LWIzOTItOWI2ZDEyYzJhYjY1

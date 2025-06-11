@@ -1,0 +1,21 @@
+﻿spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+
+res:
+    brasil:
+        servico:
+            inativacao:
+                profissional:
+                    abreviatura: univision
+                    cnpj: "29931216000152"
+                    cpf: ""
+    federacao:
+        acesso:
+            user: univision
+            pass: QxMFwe41
+        quer:
+            acesso:
+                user: appquer
+                pass: W6!5fqY7z5
+                    

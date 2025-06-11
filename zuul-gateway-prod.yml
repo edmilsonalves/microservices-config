@@ -1,0 +1,5 @@
+server:
+  port: ${PORT:8080}
+  undertow:
+    ioThreads: 15
+    workerThreads: 300

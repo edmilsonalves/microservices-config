@@ -1,0 +1,37 @@
+server:
+    port: ${PORT:${SERVER_PORT:9005}}
+    
+swagger:
+    title: Cooperado
+    description: Microserviço das APIs de Cooperado
+    
+umb:
+    path:
+        fotoBeneficio: c:/dev/images/beneficio
+        anuncioCooperado: c:/dev/images/anuncio-cooperado
+        
+url:
+    foto:
+        beneficio: /app/v1/beneficios/foto?file=
+        anuncio: /app/v1/anuncio/foto?file=
+    
+boleto:
+    cotas:
+        push:
+            titulo: Boletos Cotas Parte
+            message: Existem boletos cotas parte vencidos ou prestes a vencer a serem pagos.
+# UVNACOOP-869 - #254468 - Exibir código de barras dos boletos cotas partes por 180 dias após o vencimento
+        boleto.diasPrazoVencimento: 180
+
+autorizacao:
+    dias: 15
+
+avaliacoes:
+    diasCorte: 15
+    quantidadeMinima: 15
+
+evento:
+    msg:
+        avaliacao: Você participou do evento, agora gostaríamos de saber sua opinião
+    busca:
+        dias: 15 

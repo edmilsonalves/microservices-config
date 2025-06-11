@@ -1,0 +1,7 @@
+
+spring.boot.admin:
+    ui.public-url: https://gateway-qa.appunimed.com/spring-admin
+    discovery.ignored-services: 
+    notify.slack:
+        webhook-url: https://hooks.slack.com/services/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
+        channel: cloud-qa

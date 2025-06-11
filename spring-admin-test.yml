@@ -1,0 +1,3 @@
+spring.boot.admin:
+  ui.public-url: https://gateway-test.appunimed.com:8443/spring-admin
+  discovery.ignored-services:
